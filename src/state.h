@@ -2,24 +2,43 @@
 
 #include <SDL3/SDL.h>
 
-#include "resource/actor.h"
+#include "character.h"
+#include "cursor.h"
+#include "item.h"
 
 #include "canvas.h"
 #include "resources.h"
 
+#include "window/info.h"
+#include "window/main_menu.h"
+#include "window/text.h"
+
 namespace game
 {
+
   class State
   {
     SDL_Window* window{};
     SDL_GLContext context{};
+    long previousUpdate{};
+    long previousTick{};
 
     Resources resources;
 
-    resource::Actor actor{"resources/anm2/snivy.anm2", glm::vec2(400, 400)};
+    Character character{&resources.anm2s[anm2::CHARACTER], glm::vec2(300, 500)};
+    Cursor cursor{&resources.anm2s[anm2::CURSOR]};
 
-    long previousUpdate{};
-    long previousTick{};
+    std::vector<Item> items{};
+
+    window::Info infoWindow;
+    window::MainMenu mainMenuWindow;
+    window::Text textWindow;
+
+    bool isMainMenu{false};
+    bool isInfo{false};
+    bool isText{false};
+
+    GameData gameData;
 
     void tick();
     void update();

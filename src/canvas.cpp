@@ -9,6 +9,8 @@ namespace game
   GLuint Canvas::textureVAO = 0;
   GLuint Canvas::textureVBO = 0;
   GLuint Canvas::textureEBO = 0;
+  GLuint Canvas::rectVAO = 0;
+  GLuint Canvas::rectVBO = 0;
   bool Canvas::isStaticInit = false;
 
   Canvas::Canvas(vec2 size, bool isDefault)
@@ -66,6 +68,20 @@ namespace game
       glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
       glBindVertexArray(0);
+
+      // Rect
+      glGenVertexArrays(1, &rectVAO);
+      glGenBuffers(1, &rectVBO);
+
+      glBindVertexArray(rectVAO);
+
+      glBindBuffer(GL_ARRAY_BUFFER, rectVBO);
+      glBufferData(GL_ARRAY_BUFFER, sizeof(RECT_VERTICES), RECT_VERTICES, GL_STATIC_DRAW);
+
+      glEnableVertexAttribArray(0);
+      glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+
+      glBindVertexArray(0);
     }
   }
 
@@ -89,9 +105,6 @@ namespace game
   void Canvas::texture_render(Shader& shader, GLuint textureId, mat4& model, vec4 tint, vec3 colorOffset,
                               float* vertices) const
   {
-    auto view = view_get();
-    auto projection = projection_get();
-
     glUseProgram(shader.id);
 
     glUniform1i(glGetUniformLocation(shader.id, shader::UNIFORM_TEXTURE), 0);
@@ -99,8 +112,9 @@ namespace game
     glUniform4fv(glGetUniformLocation(shader.id, shader::UNIFORM_TINT), 1, value_ptr(tint));
 
     glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_MODEL), 1, GL_FALSE, value_ptr(model));
-    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_VIEW), 1, GL_FALSE, value_ptr(view));
-    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_PROJECTION), 1, GL_FALSE, value_ptr(projection));
+    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_VIEW), 1, GL_FALSE, value_ptr(view_get()));
+    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_PROJECTION), 1, GL_FALSE,
+                       value_ptr(projection_get()));
 
     glBindVertexArray(textureVAO);
 
@@ -115,6 +129,25 @@ namespace game
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindTexture(GL_TEXTURE_2D, 0);
+    glUseProgram(0);
+  }
+
+  void Canvas::rect_render(Shader& shader, mat4& model, vec4 color) const
+  {
+    glUseProgram(shader.id);
+
+    glUniform4fv(glGetUniformLocation(shader.id, shader::UNIFORM_COLOR), 1, value_ptr(color));
+
+    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_MODEL), 1, GL_FALSE, value_ptr(model));
+    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_VIEW), 1, GL_FALSE, value_ptr(view_get()));
+    glUniformMatrix4fv(glGetUniformLocation(shader.id, shader::UNIFORM_PROJECTION), 1, GL_FALSE,
+                       value_ptr(projection_get()));
+
+    glBindVertexArray(rectVAO);
+
+    glDrawArrays(GL_LINE_LOOP, 0, 4);
+
+    glBindVertexArray(0);
     glUseProgram(0);
   }
 

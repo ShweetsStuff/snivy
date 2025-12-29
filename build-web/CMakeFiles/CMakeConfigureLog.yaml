@@ -1,0 +1,2558 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/uname"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/uname"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/usr/local/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The target system is: Emscripten - 1 - x86
+      The host system is: Linux - 6.18.2-arch2-1 - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/gmake"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/gmake"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/gmake"
+      - "/usr/local/sbin/gmake"
+      - "/usr/local/bin/gmake"
+      - "/usr/bin/gmake"
+      - "/home/anon/.local/bin/gmake"
+      - "/home/anon/.local/bin/logs/gmake"
+      - "/home/anon/.local/bin/status/gmake"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/gmake"
+      - "/bin/gmake"
+      - "/sbin/gmake"
+      - "/home/anon/sda/Personal/Repos/emsdk/make"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/make"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/make"
+      - "/usr/local/sbin/make"
+      - "/usr/local/bin/make"
+    found: "/usr/bin/make"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out.js"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out.wasm"
+      
+      The C compiler identification could not be found in:
+        /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/4.2.1/CompilerIdC/a.out.js
+      
+      The C compiler identification is Clang, found in:
+        /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/4.2.1/CompilerIdC/a.out.wasm
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-strip"
+      - "strip"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/llvm-strip"
+      - "/home/anon/sda/Personal/Repos/emsdk/llvm-strip"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/llvm-strip"
+      - "/usr/local/sbin/llvm-strip"
+      - "/usr/local/bin/llvm-strip"
+    found: "/usr/bin/llvm-strip"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld.lld"
+      - "ld"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/ld.lld"
+      - "/home/anon/sda/Personal/Repos/emsdk/ld.lld"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/ld.lld"
+      - "/usr/local/sbin/ld.lld"
+      - "/usr/local/bin/ld.lld"
+    found: "/usr/bin/ld.lld"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/llvm-objdump"
+      - "/home/anon/sda/Personal/Repos/emsdk/llvm-objdump"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/llvm-objdump"
+      - "/usr/local/sbin/llvm-objdump"
+      - "/usr/local/bin/llvm-objdump"
+    found: "/usr/bin/llvm-objdump"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/llvm-objcopy"
+      - "/home/anon/sda/Personal/Repos/emsdk/llvm-objcopy"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/llvm-objcopy"
+      - "/usr/local/sbin/llvm-objcopy"
+      - "/usr/local/bin/llvm-objcopy"
+    found: "/usr/bin/llvm-objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/llvm-readelf"
+      - "/home/anon/sda/Personal/Repos/emsdk/llvm-readelf"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/llvm-readelf"
+      - "/usr/local/sbin/llvm-readelf"
+      - "/usr/local/bin/llvm-readelf"
+    found: "/usr/bin/llvm-readelf"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/llvm-dlltool"
+      - "/home/anon/sda/Personal/Repos/emsdk/llvm-dlltool"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/llvm-dlltool"
+      - "/usr/local/sbin/llvm-dlltool"
+      - "/usr/local/bin/llvm-dlltool"
+    found: "/usr/bin/llvm-dlltool"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/llvm-addr2line"
+      - "/home/anon/sda/Personal/Repos/emsdk/llvm-addr2line"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/llvm-addr2line"
+      - "/usr/local/sbin/llvm-addr2line"
+      - "/usr/local/bin/llvm-addr2line"
+    found: "/usr/bin/llvm-addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/tapi"
+      - "/home/anon/sda/Personal/Repos/emsdk/tapi"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/usr/bin/tapi"
+      - "/home/anon/.local/bin/tapi"
+      - "/home/anon/.local/bin/logs/tapi"
+      - "/home/anon/.local/bin/status/tapi"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/tapi"
+      - "/bin/tapi"
+      - "/sbin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-21.0"
+      - "clang-scan-deps-21"
+      - "clang-scan-deps21"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/clang-scan-deps-21.0"
+      - "/home/anon/sda/Personal/Repos/emsdk/clang-scan-deps-21.0"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/clang-scan-deps-21.0"
+      - "/usr/local/sbin/clang-scan-deps-21.0"
+      - "/usr/local/bin/clang-scan-deps-21.0"
+      - "/usr/bin/clang-scan-deps-21.0"
+      - "/home/anon/.local/bin/clang-scan-deps-21.0"
+      - "/home/anon/.local/bin/logs/clang-scan-deps-21.0"
+      - "/home/anon/.local/bin/status/clang-scan-deps-21.0"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/clang-scan-deps-21.0"
+      - "/bin/clang-scan-deps-21.0"
+      - "/sbin/clang-scan-deps-21.0"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/clang-scan-deps-21"
+      - "/home/anon/sda/Personal/Repos/emsdk/clang-scan-deps-21"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/clang-scan-deps-21"
+      - "/usr/local/sbin/clang-scan-deps-21"
+      - "/usr/local/bin/clang-scan-deps-21"
+      - "/usr/bin/clang-scan-deps-21"
+      - "/home/anon/.local/bin/clang-scan-deps-21"
+      - "/home/anon/.local/bin/logs/clang-scan-deps-21"
+      - "/home/anon/.local/bin/status/clang-scan-deps-21"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/clang-scan-deps-21"
+      - "/bin/clang-scan-deps-21"
+      - "/sbin/clang-scan-deps-21"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/clang-scan-deps21"
+      - "/home/anon/sda/Personal/Repos/emsdk/clang-scan-deps21"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/clang-scan-deps21"
+      - "/usr/local/sbin/clang-scan-deps21"
+      - "/usr/local/bin/clang-scan-deps21"
+      - "/usr/bin/clang-scan-deps21"
+      - "/home/anon/.local/bin/clang-scan-deps21"
+      - "/home/anon/.local/bin/logs/clang-scan-deps21"
+      - "/home/anon/.local/bin/status/clang-scan-deps21"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/clang-scan-deps21"
+      - "/bin/clang-scan-deps21"
+      - "/sbin/clang-scan-deps21"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/clang-scan-deps"
+      - "/home/anon/sda/Personal/Repos/emsdk/clang-scan-deps"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/clang-scan-deps"
+      - "/usr/local/sbin/clang-scan-deps"
+      - "/usr/local/bin/clang-scan-deps"
+    found: "/usr/bin/clang-scan-deps"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/usr/share/cmake/Modules/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/usr/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/em++ 
+      Build flags: -fdiagnostics-color=always;-fdiagnostics-color=always
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out.js"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out.wasm"
+      
+      The CXX compiler identification could not be found in:
+        /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/4.2.1/CompilerIdCXX/a.out.js
+      
+      The CXX compiler identification is Clang, found in:
+        /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/4.2.1/CompilerIdCXX/a.out.wasm
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Platform/Emscripten.cmake:6 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "_EMSCRIPTEN_PLATFORM_MODULE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Platform/Emscripten.cmake"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_03c66/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_03c66.dir/build.make CMakeFiles/cmTC_03c66.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO'
+        Building C object CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc   -v -MD -MT CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -MD -MT CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o.d -oCMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        clang version 21.0.0git (https:/github.com/llvm/llvm-project 6dc41a639334b913e762f65410fcd14a722b137f)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/anon/sda/Personal/Repos/emsdk/upstream/bin
+         (in-process)
+         "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang-21" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO -v -fcoverage-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO -resource-dir /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21 -dependency-file CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 21.0.0git based upon LLVM 21.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        Linking C executable cmTC_03c66.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03c66.dir/link.txt --verbose=1
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang --version
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld -o cmTC_03c66.wasm CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib -lGL-getprocaddr -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc-debug -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmp66su09pflibemscripten_js_symbols.so --strip-debug --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=_emscripten_stack_alloc --export=__wasm_call_ctors --export=_emscripten_stack_restore --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table -z stack-size=65536 --no-growable-memory --initial-heap=16777216 --no-entry --stack-first --table-base=1
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/llvm-objcopy cmTC_03c66.wasm cmTC_03c66.wasm --remove-section=.debug* --remove-section=producers --remove-section=name
+         /home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/node /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/compiler.mjs /tmp/tmpksw5r8zr.json
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc  -v @CMakeFiles/cmTC_03c66.dir/objects1.rsp -o cmTC_03c66.js
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+        end of search list found
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+        implicit include dirs: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat;/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wasm-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wasm-ld))("|,| |$)]
+        ignore line: [Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_03c66/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_03c66.dir/build.make CMakeFiles/cmTC_03c66.dir/build]
+        ignore line: [make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO']
+        ignore line: [Building C object CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc   -v -MD -MT CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang -target wasm32-unknown-emscripten -fignore-exceptions -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -MD -MT CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o.d -oCMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang version 21.0.0git (https:/github.com/llvm/llvm-project 6dc41a639334b913e762f65410fcd14a722b137f)]
+        ignore line: [Target: wasm32-unknown-emscripten]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/anon/sda/Personal/Repos/emsdk/upstream/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang-21" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO -v -fcoverage-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Q4GpOO -resource-dir /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21 -dependency-file CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fignore-exceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -x c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 21.0.0git based upon LLVM 21.0.0git default target x86_64-unknown-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_03c66.js]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03c66.dir/link.txt --verbose=1]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang --version]
+        link line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld -o cmTC_03c66.wasm CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib -lGL-getprocaddr -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc-debug -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmp66su09pflibemscripten_js_symbols.so --strip-debug --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=_emscripten_stack_alloc --export=__wasm_call_ctors --export=_emscripten_stack_restore --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table -z stack-size=65536 --no-growable-memory --initial-heap=16777216 --no-entry --stack-first --table-base=1]
+          arg [/home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_03c66.wasm] ==> ignore
+          arg [CMakeFiles/cmTC_03c66.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten] ==> dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten]
+          arg [-L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib] ==> dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib]
+          arg [-lGL-getprocaddr] ==> lib [GL-getprocaddr]
+          arg [-lal] ==> lib [al]
+          arg [-lhtml5] ==> lib [html5]
+          arg [-lstubs-debug] ==> lib [stubs-debug]
+          arg [-lnoexit] ==> lib [noexit]
+          arg [-lc-debug] ==> lib [c-debug]
+          arg [-ldlmalloc-debug] ==> lib [dlmalloc-debug]
+          arg [-lcompiler_rt] ==> lib [compiler_rt]
+          arg [-lc++-noexcept] ==> lib [c++-noexcept]
+          arg [-lc++abi-debug-noexcept] ==> lib [c++abi-debug-noexcept]
+          arg [-lsockets] ==> lib [sockets]
+          arg [-mllvm] ==> ignore
+          arg [-combiner-global-alias-analysis=false] ==> ignore
+          arg [-mllvm] ==> ignore
+          arg [-enable-emscripten-sjlj] ==> ignore
+          arg [-mllvm] ==> ignore
+          arg [-disable-lsr] ==> ignore
+          arg [/tmp/tmp66su09pflibemscripten_js_symbols.so] ==> ignore
+          arg [--strip-debug] ==> ignore
+          arg [--export=emscripten_stack_get_end] ==> ignore
+          arg [--export=emscripten_stack_get_free] ==> ignore
+          arg [--export=emscripten_stack_get_base] ==> ignore
+          arg [--export=emscripten_stack_get_current] ==> ignore
+          arg [--export=emscripten_stack_init] ==> ignore
+          arg [--export=_emscripten_stack_alloc] ==> ignore
+          arg [--export=__wasm_call_ctors] ==> ignore
+          arg [--export=_emscripten_stack_restore] ==> ignore
+          arg [--export-if-defined=__start_em_asm] ==> ignore
+          arg [--export-if-defined=__stop_em_asm] ==> ignore
+          arg [--export-if-defined=__start_em_lib_deps] ==> ignore
+          arg [--export-if-defined=__stop_em_lib_deps] ==> ignore
+          arg [--export-if-defined=__start_em_js] ==> ignore
+          arg [--export-if-defined=__stop_em_js] ==> ignore
+          arg [--export-if-defined=main] ==> ignore
+          arg [--export-if-defined=__main_argc_argv] ==> ignore
+          arg [--export-if-defined=fflush] ==> ignore
+          arg [--export-table] ==> ignore
+          arg [-zstack-size=65536] ==> ignore
+          arg [--no-growable-memory] ==> ignore
+          arg [--initial-heap=16777216] ==> ignore
+          arg [--no-entry] ==> ignore
+          arg [--stack-first] ==> ignore
+          arg [--table-base=1] ==> ignore
+        linker tool for 'C': /home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld
+        collapse library dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten]
+        collapse library dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib]
+        implicit libs: [GL-getprocaddr;al;html5;stubs-debug;noexit;c-debug;dlmalloc-debug;compiler_rt;c++-noexcept;c++abi-debug-noexcept;sockets]
+        implicit objs: []
+        implicit dirs: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld" "-v"
+      LLD 21.0.0 (/b/s/w/ir/cache/git/chromium.googlesource.com-external-github.com-llvm-llvm--project 6dc41a639334b913e762f65410fcd14a722b137f)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_CXX_FLAGS: " "
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_99d37/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_99d37.dir/build.make CMakeFiles/cmTC_99d37.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS'
+        Building CXX object CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/em++   -v -MD -MT CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+         "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang++" -target wasm32-unknown-emscripten -fignore-exceptions -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -MD -MT CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o.d -oCMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        clang version 21.0.0git (https:/github.com/llvm/llvm-project 6dc41a639334b913e762f65410fcd14a722b137f)
+        Target: wasm32-unknown-emscripten
+        Thread model: posix
+        InstalledDir: /home/anon/sda/Personal/Repos/emsdk/upstream/bin
+         (in-process)
+         "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang-21" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS -v -fcoverage-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS -resource-dir /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21 -dependency-file CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1 -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1 -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fignore-exceptions -fexceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 21.0.0git based upon LLVM 21.0.0git default target x86_64-unknown-linux-gnu
+        ignoring nonexistent directory "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1"
+        ignoring nonexistent directory "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1
+         /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include
+         /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include
+        End of search list.
+        Linking CXX executable cmTC_99d37.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99d37.dir/link.txt --verbose=1
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang --version
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld -o cmTC_99d37.wasm CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib -lGL-getprocaddr -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc-debug -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmp6w8mitydlibemscripten_js_symbols.so --strip-debug --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=_emscripten_stack_alloc --export=__wasm_call_ctors --export=_emscripten_stack_restore --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table -z stack-size=65536 --no-growable-memory --initial-heap=16777216 --no-entry --stack-first --table-base=1
+         /home/anon/sda/Personal/Repos/emsdk/upstream/bin/llvm-objcopy cmTC_99d37.wasm cmTC_99d37.wasm --remove-section=.debug* --remove-section=producers --remove-section=name
+         /home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/node /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/compiler.mjs /tmp/tmp3bh3azk1.json
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/em++  -v @CMakeFiles/cmTC_99d37.dir/objects1.rsp -o cmTC_99d37.js
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include]
+          add: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+        end of search list found
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include]
+        collapse include dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+        implicit include dirs: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1;/home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wasm-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|wasm-ld))("|,| |$)]
+        ignore line: [Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_99d37/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_99d37.dir/build.make CMakeFiles/cmTC_99d37.dir/build]
+        ignore line: [make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS']
+        ignore line: [Building CXX object CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/em++   -v -MD -MT CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang++" -target wasm32-unknown-emscripten -fignore-exceptions -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr --sysroot=/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -DEMSCRIPTEN -Xclang -iwithsysroot/include/fakesdl -Xclang -iwithsysroot/include/compat -v -MD -MT CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o.d -oCMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 21.0.0git (https:/github.com/llvm/llvm-project 6dc41a639334b913e762f65410fcd14a722b137f)]
+        ignore line: [Target: wasm32-unknown-emscripten]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /home/anon/sda/Personal/Repos/emsdk/upstream/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang-21" -cc1 -triple wasm32-unknown-emscripten -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=none -ffp-contract=on -fno-rounding-math -mconstructor-aliases -target-cpu generic -fvisibility=hidden -debugger-tuning=gdb -fdebug-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS -v -fcoverage-compilation-dir=/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-GFxVPS -resource-dir /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21 -dependency-file CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D EMSCRIPTEN -isysroot /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1 -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1 -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten -internal-isystem /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include -fdeprecated-macro -ferror-limit 19 -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fignore-exceptions -fexceptions -iwithsysroot/include/fakesdl -iwithsysroot/include/compat -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr -o CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 21.0.0git based upon LLVM 21.0.0git default target x86_64-unknown-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/c++/v1"]
+        ignore line: [ignoring nonexistent directory "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/fakesdl]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/compat]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/lib/clang/21/include]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_99d37.js]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99d37.dir/link.txt --verbose=1]
+        ignore line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/bin/clang --version]
+        link line: [ /home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld -o cmTC_99d37.wasm CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib -lGL-getprocaddr -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc-debug -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmp6w8mitydlibemscripten_js_symbols.so --strip-debug --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=_emscripten_stack_alloc --export=__wasm_call_ctors --export=_emscripten_stack_restore --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table -z stack-size=65536 --no-growable-memory --initial-heap=16777216 --no-entry --stack-first --table-base=1]
+          arg [/home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_99d37.wasm] ==> ignore
+          arg [CMakeFiles/cmTC_99d37.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten] ==> dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten]
+          arg [-L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib] ==> dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib]
+          arg [-lGL-getprocaddr] ==> lib [GL-getprocaddr]
+          arg [-lal] ==> lib [al]
+          arg [-lhtml5] ==> lib [html5]
+          arg [-lstubs-debug] ==> lib [stubs-debug]
+          arg [-lnoexit] ==> lib [noexit]
+          arg [-lc-debug] ==> lib [c-debug]
+          arg [-ldlmalloc-debug] ==> lib [dlmalloc-debug]
+          arg [-lcompiler_rt] ==> lib [compiler_rt]
+          arg [-lc++-noexcept] ==> lib [c++-noexcept]
+          arg [-lc++abi-debug-noexcept] ==> lib [c++abi-debug-noexcept]
+          arg [-lsockets] ==> lib [sockets]
+          arg [-mllvm] ==> ignore
+          arg [-combiner-global-alias-analysis=false] ==> ignore
+          arg [-mllvm] ==> ignore
+          arg [-enable-emscripten-sjlj] ==> ignore
+          arg [-mllvm] ==> ignore
+          arg [-disable-lsr] ==> ignore
+          arg [/tmp/tmp6w8mitydlibemscripten_js_symbols.so] ==> ignore
+          arg [--strip-debug] ==> ignore
+          arg [--export=emscripten_stack_get_end] ==> ignore
+          arg [--export=emscripten_stack_get_free] ==> ignore
+          arg [--export=emscripten_stack_get_base] ==> ignore
+          arg [--export=emscripten_stack_get_current] ==> ignore
+          arg [--export=emscripten_stack_init] ==> ignore
+          arg [--export=_emscripten_stack_alloc] ==> ignore
+          arg [--export=__wasm_call_ctors] ==> ignore
+          arg [--export=_emscripten_stack_restore] ==> ignore
+          arg [--export-if-defined=__start_em_asm] ==> ignore
+          arg [--export-if-defined=__stop_em_asm] ==> ignore
+          arg [--export-if-defined=__start_em_lib_deps] ==> ignore
+          arg [--export-if-defined=__stop_em_lib_deps] ==> ignore
+          arg [--export-if-defined=__start_em_js] ==> ignore
+          arg [--export-if-defined=__stop_em_js] ==> ignore
+          arg [--export-if-defined=main] ==> ignore
+          arg [--export-if-defined=__main_argc_argv] ==> ignore
+          arg [--export-if-defined=fflush] ==> ignore
+          arg [--export-table] ==> ignore
+          arg [-zstack-size=65536] ==> ignore
+          arg [--no-growable-memory] ==> ignore
+          arg [--initial-heap=16777216] ==> ignore
+          arg [--no-entry] ==> ignore
+          arg [--stack-first] ==> ignore
+          arg [--table-base=1] ==> ignore
+        linker tool for 'CXX': /home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld
+        collapse library dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten]
+        collapse library dir [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib] ==> [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib]
+        implicit libs: [GL-getprocaddr;al;html5;stubs-debug;noexit;c-debug;dlmalloc-debug;compiler_rt;c++-noexcept;c++abi-debug-noexcept;sockets]
+        implicit objs: []
+        implicit dirs: [/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "/home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld" "-v"
+      LLD 21.0.0 (/b/s/w/ir/cache/git/chromium.googlesource.com-external-github.com-llvm-llvm--project 6dc41a639334b913e762f65410fcd14a722b137f)
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindPkgConfig.cmake:517 (find_program)"
+      - "external/SDL/CMakeLists.txt:65 (find_package)"
+    mode: "program"
+    variable: "PKG_CONFIG_EXECUTABLE"
+    description: "pkg-config executable"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "pkg-config"
+      - "pkgconf"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/pkg-config"
+      - "/home/anon/sda/Personal/Repos/emsdk/pkgconf"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/pkg-config"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/pkgconf"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/pkg-config"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/pkgconf"
+      - "/usr/local/sbin/pkg-config"
+      - "/usr/local/sbin/pkgconf"
+      - "/usr/local/bin/pkg-config"
+      - "/usr/local/bin/pkgconf"
+    found: "/usr/bin/pkg-config"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "external/SDL/cmake/sdlcpu.cmake:95 (try_compile)"
+      - "external/SDL/CMakeLists.txt:82 (SDL_DetectTargetCPUArchitectures)"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL/CMakeFiles/CMakeTmp/SDL_detect_arch/CMakeFiles/CMakeTmp"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL/CMakeFiles/CMakeTmp/SDL_detect_arch/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/snivy/external/SDL/cmake"
+    buildResult:
+      variable: "SDL_CPU_CHECK_ALL"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL/CMakeFiles/CMakeTmp/SDL_detect_arch/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a5953/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_a5953.dir/build.make CMakeFiles/cmTC_a5953.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL/CMakeFiles/CMakeTmp/SDL_detect_arch/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_a5953.dir/SDL_detect_arch.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc    -MD -MT CMakeFiles/cmTC_a5953.dir/SDL_detect_arch.c.o -MF CMakeFiles/cmTC_a5953.dir/SDL_detect_arch.c.o.d -o CMakeFiles/cmTC_a5953.dir/SDL_detect_arch.c.o -c /home/anon/sda/Personal/Repos/snivy/build-web/external/SDL/CMakeFiles/CMakeTmp/SDL_detect_arch.c
+        Linking C static library libcmTC_a5953.a
+        /usr/bin/cmake -P CMakeFiles/cmTC_a5953.dir/cmake_clean_target.cmake
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5953.dir/link.txt --verbose=1
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emar qc libcmTC_a5953.a CMakeFiles/cmTC_a5953.dir/SDL_detect_arch.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emranlib libcmTC_a5953.a
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL/CMakeFiles/CMakeTmp/SDL_detect_arch/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCCompilerFlag.cmake:105 (cmake_check_compiler_flag)"
+      - "external/SDL/cmake/sdlcompilers.cmake:155 (check_c_compiler_flag)"
+      - "external/SDL/CMakeLists.txt:476 (SDL_AddCommonCompilerFlags)"
+    checks:
+      - "Performing Test COMPILER_SUPPORTS_FCOLOR_DIAGNOSTICS"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Ka8oX8"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Ka8oX8"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/snivy/external/SDL/cmake"
+    buildResult:
+      variable: "COMPILER_SUPPORTS_FCOLOR_DIAGNOSTICS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Ka8oX8'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7e135/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7e135.dir/build.make CMakeFiles/cmTC_7e135.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Ka8oX8'
+        Building C object CMakeFiles/cmTC_7e135.dir/src.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc -DCOMPILER_SUPPORTS_FCOLOR_DIAGNOSTICS  -D_GNU_SOURCE=1   -fcolor-diagnostics -MD -MT CMakeFiles/cmTC_7e135.dir/src.c.o -MF CMakeFiles/cmTC_7e135.dir/src.c.o.d -o CMakeFiles/cmTC_7e135.dir/src.c.o -c /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Ka8oX8/src.c
+        Linking C executable cmTC_7e135.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e135.dir/link.txt --verbose=1
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc   -D_GNU_SOURCE=1 @CMakeFiles/cmTC_7e135.dir/objects1.rsp -o cmTC_7e135.js
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-Ka8oX8'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "external/SDL/CMakeLists.txt:3445 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_POSIX_SPAWN"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-shW5dd"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-shW5dd"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/snivy/external/SDL/cmake"
+    buildResult:
+      variable: "HAVE_POSIX_SPAWN"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-shW5dd'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_57d47/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_57d47.dir/build.make CMakeFiles/cmTC_57d47.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-shW5dd'
+        Building C object CMakeFiles/cmTC_57d47.dir/src.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc -DHAVE_POSIX_SPAWN  -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_57d47.dir/src.c.o -MF CMakeFiles/cmTC_57d47.dir/src.c.o.d -o CMakeFiles/cmTC_57d47.dir/src.c.o -c /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-shW5dd/src.c
+        Linking C executable cmTC_57d47.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57d47.dir/link.txt --verbose=1
+        wasm-ld: error: CMakeFiles/cmTC_57d47.dir/src.c.o: undefined symbol: posix_spawnp
+        emcc: error: '/home/anon/sda/Personal/Repos/emsdk/upstream/bin/wasm-ld -o cmTC_57d47.wasm CMakeFiles/cmTC_57d47.dir/src.c.o -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten -L/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/src/lib -lGL-getprocaddr -lal -lhtml5 -lstubs-debug -lnoexit -lc-debug -ldlmalloc-debug -lcompiler_rt -lc++-noexcept -lc++abi-debug-noexcept -lsockets -mllvm -combiner-global-alias-analysis=false -mllvm -enable-emscripten-sjlj -mllvm -disable-lsr /tmp/tmp_64keahvlibemscripten_js_symbols.so --strip-debug --export=emscripten_stack_get_end --export=emscripten_stack_get_free --export=emscripten_stack_get_base --export=emscripten_stack_get_current --export=emscripten_stack_init --export=_emscripten_stack_alloc --export=__wasm_call_ctors --export=_emscripten_stack_restore --export-if-defined=__start_em_asm --export-if-defined=__stop_em_asm --export-if-defined=__start_em_lib_deps --export-if-defined=__stop_em_lib_deps --export-if-defined=__start_em_js --export-if-defined=__stop_em_js --export-if-defined=main --export-if-defined=__main_argc_argv --export-if-defined=fflush --export-table -z stack-size=65536 --no-growable-memory --initial-heap=16777216 --no-entry --stack-first --table-base=1' failed (returned 1)
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc   -D_GNU_SOURCE=1 @CMakeFiles/cmTC_57d47.dir/objects1.rsp -o cmTC_57d47.js
+        make[1]: *** [CMakeFiles/cmTC_57d47.dir/build.make:104: cmTC_57d47.js] Error 1
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-shW5dd'
+        make: *** [Makefile:134: cmTC_57d47/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:193 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckSymbolExists.cmake:98 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "external/SDL/CMakeLists.txt:3482 (check_symbol_exists)"
+    checks:
+      - "Looking for vfork"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-lQZDG0"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-lQZDG0"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/snivy/external/SDL/cmake"
+    buildResult:
+      variable: "LIBC_HAS_VFORK"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-lQZDG0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fa0fd/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_fa0fd.dir/build.make CMakeFiles/cmTC_fa0fd.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-lQZDG0'
+        Building C object CMakeFiles/cmTC_fa0fd.dir/CheckSymbolExists.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc   -D_GNU_SOURCE=1 -MD -MT CMakeFiles/cmTC_fa0fd.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_fa0fd.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_fa0fd.dir/CheckSymbolExists.c.o -c /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-lQZDG0/CheckSymbolExists.c
+        Linking C executable cmTC_fa0fd.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa0fd.dir/link.txt --verbose=1
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc   -D_GNU_SOURCE=1 @CMakeFiles/cmTC_fa0fd.dir/objects1.rsp -o cmTC_fa0fd.js
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-lQZDG0'
+        
+      exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/FindGit.cmake:111 (find_program)"
+      - "external/SDL/cmake/GetGitRevisionDescription.cmake:177 (find_package)"
+      - "external/SDL/CMakeLists.txt:3690 (git_describe)"
+    mode: "program"
+    variable: "GIT_EXECUTABLE"
+    description: "Git command line client"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "git"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/home/anon/.local/bin/"
+      - "/home/anon/.local/bin/logs/"
+      - "/home/anon/.local/bin/status/"
+      - "/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/bin/"
+      - "/sbin/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/git"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/git"
+      - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/git"
+      - "/usr/local/sbin/git"
+      - "/usr/local/bin/git"
+    found: "/usr/bin/git"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:103 (cmake_check_source_compiles)"
+      - "external/SDL_mixer/cmake/PrivateSdlFunctions.cmake:269 (check_c_source_compiles)"
+      - "external/SDL_mixer/cmake/PrivateSdlFunctions.cmake:289 (check_linker_support_version_script)"
+      - "external/SDL_mixer/CMakeLists.txt:274 (sdl_target_link_option_version_file)"
+    checks:
+      - "Performing Test LINKER_SUPPORTS_VERSION_SCRIPT"
+    directories:
+      source: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-nesKQ5"
+      binary: "/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-nesKQ5"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules;/home/anon/sda/Personal/Repos/snivy/external/SDL_mixer/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "OFF"
+    buildResult:
+      variable: "LINKER_SUPPORTS_VERSION_SCRIPT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-nesKQ5'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e61a4/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e61a4.dir/build.make CMakeFiles/cmTC_e61a4.dir/build
+        make[1]: Entering directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-nesKQ5'
+        Building C object CMakeFiles/cmTC_e61a4.dir/src.c.o
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc -DLINKER_SUPPORTS_VERSION_SCRIPT   -MD -MT CMakeFiles/cmTC_e61a4.dir/src.c.o -MF CMakeFiles/cmTC_e61a4.dir/src.c.o.d -o CMakeFiles/cmTC_e61a4.dir/src.c.o -c /home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-nesKQ5/src.c
+        Linking C executable cmTC_e61a4.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e61a4.dir/link.txt --verbose=1
+        emcc: warning: ignoring unsupported linker flag: `--version-script=/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL_mixer/dummy.sym` [-Wlinkflags]
+        /home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/emcc -Wl,--version-script=/home/anon/sda/Personal/Repos/snivy/build-web/external/SDL_mixer/dummy.sym @CMakeFiles/cmTC_e61a4.dir/objects1.rsp -o cmTC_e61a4.js
+        make[1]: Leaving directory '/home/anon/sda/Personal/Repos/snivy/build-web/CMakeFiles/CMakeScratch/TryCompile-nesKQ5'
+        
+      exitCode: 0
+  -
+    kind: "find-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:6 (find_library)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    mode: "library"
+    variable: "OpusFile_LIBRARY"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "opusfile"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:11 (find_path)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    mode: "path"
+    variable: "OpusFile_INCLUDE_PATH"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "opus/opusfile.h"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/opusfile.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/opusfile.h"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOgg.cmake:6 (find_library)"
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:28 (find_package)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    mode: "library"
+    variable: "Ogg_LIBRARY"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ogg"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/libogg.a"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOgg.cmake:11 (find_path)"
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:28 (find_package)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    mode: "path"
+    variable: "Ogg_INCLUDE_PATH"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ogg/ogg.h"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/ogg/ogg.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/ogg/ogg.h"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOpus.cmake:6 (find_library)"
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:29 (find_package)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    mode: "library"
+    variable: "Opus_LIBRARY"
+    description: "Path to a library."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "opus"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/lib/"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOpus.cmake:11 (find_path)"
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:29 (find_package)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    mode: "path"
+    variable: "Opus_INCLUDE_PATH"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "opus.h"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/"
+    searched_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/sbin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/local/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/usr/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/logs/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/bin/status/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/home/anon/.local/share/gem/ruby/3.3.0/bin/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/wasm32-emscripten/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus/opus.h"
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/include/opus.h"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "external/SDL_mixer/cmake/FindOpusFile.cmake:29 (find_package)"
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    name: "Opus"
+    configs:
+      -
+        filename: "OpusConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "opus-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "optional"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "Opus"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "ONLY"
+    candidates:
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/OpusConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/opus-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/OpusConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/opus-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/OpusConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/opus-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/snivy/external/SDL_mixer/cmake/FindOpus.cmake"
+        mode: "module"
+        reason: "not_found"
+    found: null
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_MODULE_PATH:
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+        - "/home/anon/sda/Personal/Repos/snivy/external/SDL_mixer/cmake"
+  -
+    kind: "find_package-v1"
+    backtrace:
+      - "external/SDL_mixer/CMakeLists.txt:382 (find_package)"
+    name: "OpusFile"
+    configs:
+      -
+        filename: "OpusFileConfig.cmake"
+        kind: "cmake"
+      -
+        filename: "opusfile-config.cmake"
+        kind: "cmake"
+    version_request:
+      exact: false
+    settings:
+      required: "optional"
+      quiet: false
+      global: false
+      policy_scope: true
+      bypass_provider: false
+      names:
+        - "OpusFile"
+      path_suffixes:
+        - ""
+      paths:
+        CMAKE_FIND_USE_CMAKE_PATH: true
+        CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+        CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+        CMAKE_FIND_USE_INSTALL_PREFIX: true
+        CMAKE_FIND_USE_PACKAGE_ROOT_PATH: true
+        CMAKE_FIND_USE_CMAKE_PACKAGE_REGISTRY: true
+        CMAKE_FIND_USE_SYSTEM_PACKAGE_REGISTRY: true
+        CMAKE_FIND_ROOT_PATH_MODE: "ONLY"
+    candidates:
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/OpusFileConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/opusfile-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/OpusFileConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/opusfile-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/OpusFileConfig.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/opusfile-config.cmake"
+        mode: "config"
+        reason: "no_exist"
+      -
+        path: "/home/anon/sda/Personal/Repos/snivy/external/SDL_mixer/cmake/FindOpusFile.cmake"
+        mode: "module"
+        reason: "not_found"
+    found: null
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+        - "/"
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot;/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_MODULE_PATH:
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules"
+        - "/home/anon/sda/Personal/Repos/snivy/external/SDL_mixer/cmake"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Platform/Emscripten.cmake:6 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "_EMSCRIPTEN_PLATFORM_MODULE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Platform/Emscripten.cmake"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/bin"
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Platform/Emscripten.cmake:6 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "_EMSCRIPTEN_PLATFORM_MODULE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Platform/Emscripten.cmake"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/bin"
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Platform/Emscripten.cmake:6 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "_EMSCRIPTEN_PLATFORM_MODULE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Platform/Emscripten.cmake"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot/bin"
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Platform/Emscripten.cmake:6 (find_file)"
+      - "/usr/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "_EMSCRIPTEN_PLATFORM_MODULE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "Platform/Emscripten.cmake"
+    candidate_directories:
+      - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/"
+    found: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    search_context:
+      ENV{PATH}:
+        - "/home/anon/sda/Personal/Repos/emsdk"
+        - "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten"
+        - "/home/anon/sda/Personal/Repos/emsdk/node/20.18.0_64bit/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/home/anon/.local/bin"
+        - "/home/anon/.local/bin/logs"
+        - "/home/anon/.local/bin/status"
+        - "/home/anon/.local/share/gem/ruby/3.3.0/bin"
+      CMAKE_INSTALL_PREFIX: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/"
+      CMAKE_FIND_ROOT_PATH: "/home/anon/sda/Personal/Repos/emsdk/upstream/emscripten/cache/sysroot"
+...

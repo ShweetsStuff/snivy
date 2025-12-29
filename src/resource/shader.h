@@ -15,7 +15,7 @@ namespace game::resource::shader
   };
 
 #ifdef __EMSCRIPTEN__
-  constexpr auto VERTEX = R"(#version 300 es
+  inline constexpr auto VERTEX = R"(#version 300 es
   layout (location = 0) in vec2 i_position;
   layout (location = 1) in vec2 i_uv;
   out vec2 v_uv;
@@ -30,7 +30,17 @@ namespace game::resource::shader
   }
   )";
 
-  constexpr auto FRAGMENT = R"(#version 300 es
+  inline constexpr auto FRAGMENT = R"(#version 300 es
+  precision mediump float;
+  uniform vec4 u_color;
+  out vec4 o_fragColor;
+  void main()
+  {
+      o_fragColor = u_color;
+  }
+  )";
+
+  inline constexpr auto TEXTURE_FRAGMENT = R"(#version 300 es
   precision mediump float;
   in vec2 v_uv;
   uniform sampler2D u_texture;
@@ -46,7 +56,7 @@ namespace game::resource::shader
   }
   )";
 #else
-  constexpr auto VERTEX = R"(#version 330 core
+  inline constexpr auto VERTEX = R"(#version 330 core
   layout (location = 0) in vec2 i_position;
   layout (location = 1) in vec2 i_uv;
   out vec2 v_uv;
@@ -61,7 +71,17 @@ namespace game::resource::shader
   }
   )";
 
-  constexpr auto FRAGMENT = R"(#version 330 core
+  inline constexpr auto FRAGMENT = R"(
+  #version 330 core
+  out vec4 o_fragColor;
+  uniform vec4 u_color;
+  void main()
+  {
+      o_fragColor = u_color;
+  }
+  )";
+
+  inline constexpr auto TEXTURE_FRAGMENT = R"(#version 330 core
   in vec2 v_uv;
   uniform sampler2D u_texture;
   uniform vec4 u_tint;
@@ -75,6 +95,7 @@ namespace game::resource::shader
       o_fragColor = texColor;
   }
   )";
+
 #endif
 
   constexpr auto UNIFORM_MODEL = "u_model";
@@ -82,9 +103,12 @@ namespace game::resource::shader
   constexpr auto UNIFORM_PROJECTION = "u_projection";
   constexpr auto UNIFORM_TEXTURE = "u_texture";
   constexpr auto UNIFORM_TINT = "u_tint";
+  constexpr auto UNIFORM_COLOR = "u_color";
   constexpr auto UNIFORM_COLOR_OFFSET = "u_color_offset";
 
-#define SHADERS X(TEXTURE, VERTEX, FRAGMENT)
+#define SHADERS                                                                                                        \
+  X(TEXTURE, VERTEX, TEXTURE_FRAGMENT)                                                                                 \
+  X(RECT, VERTEX, FRAGMENT)
 
   enum Type
   {

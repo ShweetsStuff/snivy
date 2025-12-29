@@ -1,46 +1,26 @@
 #include "anm2.h"
+
 #include <iostream>
+
+#include "../util/xml_.h"
 
 using namespace tinyxml2;
 using namespace game::resource;
+using namespace game::util;
 
 namespace game::anm2
 {
-  XMLError query_string_attribute(XMLElement* element, const char* attribute, std::string* value)
-  {
-    const char* temp = nullptr;
-    auto result = element->QueryStringAttribute(attribute, &temp);
-    if (result == XML_SUCCESS && temp && value) *value = temp;
-    return result;
-  }
-
-  XMLError query_path_attribute(XMLElement* element, const char* attribute, std::filesystem::path* value)
-  {
-    std::string temp{};
-    auto result = query_string_attribute(element, attribute, &temp);
-    if (value) *value = std::filesystem::path(temp);
-    return result;
-  }
-
-  XMLError query_color_attribute(XMLElement* element, const char* attribute, float* value)
-  {
-    int temp{};
-    auto result = element->QueryIntAttribute(attribute, &temp);
-    if (result == XML_SUCCESS && value) *value = (temp / 255.0f);
-    return result;
-  }
-
   Info::Info(XMLElement* element)
   {
     if (!element) return;
     element->QueryIntAttribute("Fps", &fps);
   }
 
-  Spritesheet::Spritesheet(XMLElement* element, int& id, TextureCallback textureCallback)
+  Spritesheet::Spritesheet(XMLElement* element, int& id)
   {
     if (!element) return;
     element->QueryIntAttribute("Id", &id);
-    query_path_attribute(element, "Path", &path);
+    xml::query_path_attribute(element, "Path", &path);
     texture = Texture(path);
   }
 
@@ -48,7 +28,7 @@ namespace game::anm2
   {
     if (!element) return;
     element->QueryIntAttribute("Id", &id);
-    query_string_attribute(element, "Name", &name);
+    xml::query_string_attribute(element, "Name", &name);
     element->QueryIntAttribute("SpritesheetId", &spritesheetID);
   }
 
@@ -56,7 +36,7 @@ namespace game::anm2
   {
     if (!element) return;
     element->QueryIntAttribute("Id", &id);
-    query_string_attribute(element, "Name", &name);
+    xml::query_string_attribute(element, "Name", &name);
     element->QueryBoolAttribute("ShowRect", &isShowRect);
   }
 
@@ -64,18 +44,18 @@ namespace game::anm2
   {
     if (!element) return;
     element->QueryIntAttribute("Id", &id);
-    query_string_attribute(element, "Name", &name);
+    xml::query_string_attribute(element, "Name", &name);
   }
 
-  Sound::Sound(XMLElement* element, int& id, SoundCallback soundCallback)
+  Sound::Sound(XMLElement* element, int& id)
   {
     if (!element) return;
     element->QueryIntAttribute("Id", &id);
-    query_path_attribute(element, "Path", &path);
+    xml::query_path_attribute(element, "Path", &path);
     audio = Audio(path);
   }
 
-  Content::Content(XMLElement* element, TextureCallback textureCallback, SoundCallback soundCallback)
+  Content::Content(XMLElement* element)
   {
     if (auto spritesheetsElement = element->FirstChildElement("Spritesheets"))
     {
@@ -83,7 +63,7 @@ namespace game::anm2
            child = child->NextSiblingElement("Spritesheet"))
       {
         int spritesheetId{};
-        Spritesheet spritesheet(child, spritesheetId, textureCallback);
+        Spritesheet spritesheet(child, spritesheetId);
         spritesheets.emplace(spritesheetId, std::move(spritesheet));
       }
     }
@@ -123,7 +103,7 @@ namespace game::anm2
       for (auto child = soundsElement->FirstChildElement("Sound"); child; child = child->NextSiblingElement("Sound"))
       {
         int soundId{};
-        Sound sound(child, soundId, soundCallback);
+        Sound sound(child, soundId);
         sounds.emplace(soundId, std::move(sound));
       }
     }
@@ -148,13 +128,13 @@ namespace game::anm2
       element->QueryFloatAttribute("YScale", &scale.y);
       element->QueryIntAttribute("Delay", &duration);
       element->QueryBoolAttribute("Visible", &isVisible);
-      query_color_attribute(element, "RedTint", &tint.r);
-      query_color_attribute(element, "GreenTint", &tint.g);
-      query_color_attribute(element, "BlueTint", &tint.b);
-      query_color_attribute(element, "AlphaTint", &tint.a);
-      query_color_attribute(element, "RedOffset", &colorOffset.r);
-      query_color_attribute(element, "GreenOffset", &colorOffset.g);
-      query_color_attribute(element, "BlueOffset", &colorOffset.b);
+      xml::query_color_attribute(element, "RedTint", &tint.r);
+      xml::query_color_attribute(element, "GreenTint", &tint.g);
+      xml::query_color_attribute(element, "BlueTint", &tint.b);
+      xml::query_color_attribute(element, "AlphaTint", &tint.a);
+      xml::query_color_attribute(element, "RedOffset", &colorOffset.r);
+      xml::query_color_attribute(element, "GreenOffset", &colorOffset.g);
+      xml::query_color_attribute(element, "BlueOffset", &colorOffset.b);
       element->QueryFloatAttribute("Rotation", &rotation);
       element->QueryBoolAttribute("Interpolated", &isInterpolated);
     }
@@ -180,7 +160,7 @@ namespace game::anm2
 
   Animation::Animation(XMLElement* element)
   {
-    query_string_attribute(element, "Name", &name);
+    xml::query_string_attribute(element, "Name", &name);
     element->QueryIntAttribute("FrameNum", &frameNum);
     element->QueryBoolAttribute("Loop", &isLoop);
 
@@ -215,13 +195,20 @@ namespace game::anm2
 
   Animations::Animations(XMLElement* element)
   {
-    query_string_attribute(element, "DefaultAnimation", &defaultAnimation);
+    xml::query_string_attribute(element, "DefaultAnimation", &defaultAnimation);
 
     for (auto child = element->FirstChildElement("Animation"); child; child = child->NextSiblingElement("Animation"))
       items.emplace_back(Animation(child));
+
+    for (int i = 0; i < items.size(); i++)
+    {
+      auto& item = items.at(i);
+      map[item.name] = i;
+      mapReverse[i] = item.name;
+    }
   }
 
-  Anm2::Anm2(const std::filesystem::path& path, TextureCallback textureCallback, SoundCallback soundCallback)
+  Anm2::Anm2(const std::filesystem::path& path)
   {
     XMLDocument document;
 
@@ -231,18 +218,17 @@ namespace game::anm2
       return;
     }
 
-    std::cout << "Initialzed anm2: " << path.string() << "\n";
-
     auto previousPath = std::filesystem::current_path();
     std::filesystem::current_path(path.parent_path());
 
     auto element = document.RootElement();
 
     if (auto infoElement = element->FirstChildElement("Info")) info = Info(infoElement);
-    if (auto contentElement = element->FirstChildElement("Content"))
-      content = Content(contentElement, textureCallback, soundCallback);
+    if (auto contentElement = element->FirstChildElement("Content")) content = Content(contentElement);
     if (auto animationsElement = element->FirstChildElement("Animations")) animations = Animations(animationsElement);
 
     std::filesystem::current_path(previousPath);
+
+    std::cout << "Initialzed anm2: " << path.string() << "\n";
   }
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <functional>
+#include <optional>
 #include <tinyxml2/tinyxml2.h>
 
 #include <filesystem>
@@ -25,9 +25,6 @@ namespace game::anm2
     TRIGGER
   };
 
-  using TextureCallback = std::function<std::shared_ptr<void>(const std::filesystem::path&)>;
-  using SoundCallback = std::function<std::shared_ptr<void>(const std::filesystem::path&)>;
-
   class Info
   {
   public:
@@ -43,7 +40,7 @@ namespace game::anm2
     std::filesystem::path path{};
     resource::Texture texture{};
 
-    Spritesheet(tinyxml2::XMLElement*, int&, TextureCallback = nullptr);
+    Spritesheet(tinyxml2::XMLElement*, int&);
   };
 
   class Layer
@@ -75,7 +72,7 @@ namespace game::anm2
     std::filesystem::path path{};
     resource::Audio audio{};
 
-    Sound(tinyxml2::XMLElement*, int&, SoundCallback = nullptr);
+    Sound(tinyxml2::XMLElement*, int&);
   };
 
   class Content
@@ -88,7 +85,7 @@ namespace game::anm2
     std::map<int, Sound> sounds{};
 
     Content() = default;
-    Content(tinyxml2::XMLElement*, TextureCallback = nullptr, SoundCallback = nullptr);
+    Content(tinyxml2::XMLElement*);
   };
 
   struct Frame
@@ -111,6 +108,20 @@ namespace game::anm2
 
     Frame() = default;
     Frame(tinyxml2::XMLElement*, Type);
+  };
+
+  struct FrameOptional
+  {
+    std::optional<glm::vec2> crop{};
+    std::optional<glm::vec2> position{};
+    std::optional<glm::vec2> pivot{};
+    std::optional<glm::vec2> size{};
+    std::optional<glm::vec2> scale{};
+    std::optional<float> rotation{};
+    std::optional<glm::vec4> tint{};
+    std::optional<glm::vec3> colorOffset{};
+    std::optional<bool> isInterpolated{};
+    std::optional<bool> isVisible{};
   };
 
   class Item
@@ -145,6 +156,8 @@ namespace game::anm2
   public:
     std::string defaultAnimation{};
     std::vector<Animation> items{};
+    std::unordered_map<std::string, int> map{};
+    std::unordered_map<int, std::string> mapReverse{};
 
     Animations() = default;
     Animations(tinyxml2::XMLElement*);
@@ -158,6 +171,6 @@ namespace game::anm2
     Animations animations{};
 
     Anm2() = default;
-    Anm2(const std::filesystem::path&, TextureCallback = nullptr, SoundCallback = nullptr);
+    Anm2(const std::filesystem::path&);
   };
 }

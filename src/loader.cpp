@@ -11,6 +11,8 @@
 #include <imgui.h>
 #include <iostream>
 
+#include "util/math_.h"
+
 #include <SDL3_mixer/SDL_mixer.h>
 
 #ifdef __EMSCRIPTEN__
@@ -24,7 +26,14 @@ constexpr auto GLSL_VERSION = "#version 330";
 #endif
 
 constexpr auto WINDOW_ROUNDING = 6.0f;
-constexpr auto WINDOW_COLOR = ImVec4(0.05f, 0.35f, 0.08f, 1.0f);
+constexpr auto WINDOW_COLOR = ImVec4(0.03f, 0.25f, 0.06f, 1.0f);
+constexpr auto WINDOW_BACKGROUND_COLOR = ImVec4(0.02f, 0.08f, 0.03f, 0.96f);
+constexpr auto ACCENT_COLOR = ImVec4(0.05f, 0.32f, 0.12f, 1.0f);
+constexpr auto ACCENT_COLOR_HOVERED = ImVec4(0.07f, 0.4f, 0.15f, 1.0f);
+constexpr auto ACCENT_COLOR_ACTIVE = ImVec4(0.09f, 0.5f, 0.2f, 1.0f);
+constexpr auto TAB_UNFOCUSED_COLOR = ImVec4(0.03f, 0.2f, 0.07f, 0.9f);
+
+using namespace game::util;
 
 namespace game
 {
@@ -48,7 +57,7 @@ namespace game
 #endif
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    window = SDL_CreateWindow("Snivy", SIZE.x, SIZE.y, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    window = SDL_CreateWindow("Snivy", SIZE.x, SIZE.y, SDL_WINDOW_OPENGL);
 
     if (!window)
     {
@@ -88,6 +97,7 @@ namespace game
 #endif
 
     glEnable(GL_BLEND);
+    glLineWidth(2.0f);
     glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glDisable(GL_DEPTH_TEST);
 
@@ -116,22 +126,38 @@ namespace game
 
     std::cout << "Initialized Dear ImGui" << "\n";
 
-    ImGui::StyleColorsDark();
     ImGuiIO& io = ImGui::GetIO();
-    ImGuiStyle& style = ImGui::GetStyle();
+    io.IniFilename = nullptr;
 
-    io.Fonts->AddFontFromFileTTF("resources/font/pmd.ttf");
-    style.WindowRounding = WINDOW_ROUNDING;
-    style.ChildRounding = style.WindowRounding;
-    style.FrameRounding = style.WindowRounding;
-    style.GrabRounding = style.WindowRounding;
-    style.PopupRounding = style.WindowRounding;
-    style.ScrollbarRounding = style.WindowRounding;
+    ImGuiStyle& style = ImGui::GetStyle();
+    ImGui::StyleColorsDark();
     style.Colors[ImGuiCol_TitleBg] = WINDOW_COLOR;
     style.Colors[ImGuiCol_TitleBgActive] = WINDOW_COLOR;
     style.Colors[ImGuiCol_TitleBgCollapsed] = WINDOW_COLOR;
-
-    io.IniFilename = nullptr;
+    style.Colors[ImGuiCol_Header] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_HeaderHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_HeaderActive] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_FrameBg] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_FrameBgActive] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_FrameBgHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_Button] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_ButtonHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_ButtonActive] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_CheckMark] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_SliderGrab] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_SliderGrabActive] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_ResizeGrip] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_ResizeGripHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_ResizeGripActive] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_PlotLines] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_PlotLinesHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_PlotHistogram] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_PlotHistogramHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_Tab] = ACCENT_COLOR;
+    style.Colors[ImGuiCol_TabHovered] = ACCENT_COLOR_HOVERED;
+    style.Colors[ImGuiCol_TabActive] = ACCENT_COLOR_ACTIVE;
+    style.Colors[ImGuiCol_TabUnfocused] = TAB_UNFOCUSED_COLOR;
+    style.Colors[ImGuiCol_TabUnfocusedActive] = ACCENT_COLOR;
 
     if (!ImGui_ImplSDL3_InitForOpenGL(window, context))
     {
@@ -153,6 +179,8 @@ namespace game
     }
 
     std::cout << "Initialize Dear ImGui OpenGL backend" << "\n";
+
+    math::random_seed_set();
   }
 
   Loader::~Loader()
