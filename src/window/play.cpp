@@ -85,6 +85,14 @@ namespace game::window
     auto barMin = ImVec2(position.x + (size.x * 0.5f) - (spacing * 0.5f), position.y + (spacing * 2.0f));
     auto barMax = ImVec2(barMin.x + (spacing * 2.0f), barMin.y + size.y - (spacing * 4.0f));
 
+    bool mouseHovering = ImGui::IsMouseHoveringRect(barMin, barMax);
+
+    if (mouseHovering)
+    {
+      drawList->AddRect(ImVec2(barMin.x - 1, barMin.y - 1), ImVec2(barMax.x + 1, barMax.y + 1),
+                        ImGui::GetColorU32(RECT_COLOR));
+    }
+
     drawList->AddRectFilled(barMin, barMax, ImGui::GetColorU32(BG_COLOR));
 
     auto barWidth = barMax.x - barMin.x;
@@ -171,8 +179,7 @@ namespace game::window
         }
       }
 
-      if (ImGui::IsKeyPressed(ImGuiKey_Space) ||
-          (ImGui::IsMouseHoveringRect(barMin, barMax) && ImGui::IsMouseClicked(ImGuiMouseButton_Left)))
+      if (ImGui::IsKeyPressed(ImGuiKey_Space) || (mouseHovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)))
       {
         Grade grade{MISS};
         auto subRanges = sub_ranges_get(challenge.range);
