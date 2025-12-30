@@ -28,15 +28,19 @@ jobs:
             - name: CMake Configure
               run: |
                   mkdir build
-                  cmake -S . -B ./build
+                  cmake -S . -B ./build -DSDL_UNIX_CONSOLE_BUILD=ON
 
             - name: Linux Build
               if: matrix.platform == 'linux'
               run: make -C build
 
+            - name: Add msbuild to PATH
+              if: matrix.platform == 'win'
+              uses: microsoft/setup-msbuild@v2
+
             - name: Windows Build
               if: matrix.platform == 'win'
               run: |
                   cd build
-                  msbuild snivy.vcxproj
+                  msbuild.exe snivy.vcxproj
 
