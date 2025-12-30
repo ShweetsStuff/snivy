@@ -203,7 +203,7 @@ namespace game::window
               resources.sound_play(audio::HIGH_SCORE_BIG);
               isHighScoreBigAchieved = true;
 
-              inventory.values[Item::POKE_PUFF_SUPREME_HONOR]++;
+              inventory.adjust_item(Item::POKE_PUFF_SUPREME_HONOR);
 
               auto toastItemPosition =
                   ImVec2(math::random_in_range(barMax.x + ITEM_SIZE.x, barMax.x + (size.x * 0.5f) - ITEM_SIZE.x),
@@ -265,7 +265,7 @@ namespace game::window
               resources.sound_play(audio::FALL);
               resources.sound_play(RARITY_SOUNDS.at(rarity));
 
-              inventory.values[rewardType]++;
+              inventory.adjust_item(rewardType);
 
               auto toastItemPosition =
                   ImVec2(math::random_in_range(barMax.x + ITEM_SIZE.x, barMax.x + (size.x * 0.5f) - ITEM_SIZE.x),
