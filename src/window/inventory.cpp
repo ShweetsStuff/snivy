@@ -45,9 +45,11 @@ namespace game::window
 
     for (int index = 0; index < Item::ITEM_COUNT; index++)
     {
-      if (index == Item::INVALID) continue;
-
       auto type = (Item::Type)index;
+      auto seen = values.contains(type);
+
+      //Hide invalid items and impossible-to-obtain items when not seen.
+      if (!seen && (Item::CATEGORIES[type] == Item::INVALID || Item::RARITIES[type] == Item::IMPOSSIBLE)) continue;
 
       auto columns = (int)(texture.size.x / ITEM_SIZE.x);
       auto crop = vec2(type % columns, type / columns) * ITEM_SIZE;
@@ -59,7 +61,6 @@ namespace game::window
       auto cursorScreenPos = ImGui::GetCursorScreenPos();
 
       auto quantity = 0;
-      auto seen = values.contains(type);
 
       if (seen)
       {

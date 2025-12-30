@@ -115,7 +115,7 @@ namespace game::window
             ImGui::PushItemWidth(100);
             for (int i = 0; i < Item::ITEM_COUNT; i++)
             {
-              if (i == Item::INVALID) continue;
+              if (Item::CATEGORIES[i] == Item::INVALID) continue;
               ImGui::PushID(i);
 
               //TODO: Probably a cleaner way to do this, maybe
