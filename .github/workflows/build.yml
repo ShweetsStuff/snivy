@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: Windows
+            os: windows-latest
+            platform: win
+
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v6
+        with:
+          submodules: 'recursive'
+
+      - name: CMake
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build .
