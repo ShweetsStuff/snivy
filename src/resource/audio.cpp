@@ -12,6 +12,12 @@ namespace game::resource
     return mixer;
   }
 
+  void Audio::set_gain(float gain)
+  {
+    auto mixer = mixer_get();
+    MIX_SetMasterGain(mixer, gain);
+  }
+
   void Audio::retain()
   {
     if (refCount) ++(*refCount);

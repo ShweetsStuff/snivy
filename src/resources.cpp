@@ -21,4 +21,8 @@ namespace game
   }
 
   void Resources::sound_play(audio::Type type) { audio[type].play(); }
+
+  void Resources::set_audio_gain(float vol) {
+    Audio::set_gain(vol);
+  }
 }

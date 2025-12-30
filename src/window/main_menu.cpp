@@ -6,6 +6,7 @@ namespace game::window
                         ImVec2 pos)
   {
     MeasurementSystem& measurementSystem = gameData.measurementSystem;
+    int& volume = gameData.volume;
 
     ImGui::SetNextWindowSize(size);
     ImGui::SetNextWindowPos(pos);
@@ -48,6 +49,13 @@ namespace game::window
           ImGui::RadioButton("Metric", (int*)&measurementSystem, MeasurementSystem::METRIC);
           ImGui::SameLine();
           ImGui::RadioButton("Imperial", (int*)&measurementSystem, MeasurementSystem::IMPERIAL);
+
+          ImGui::SeparatorText("Sound");
+          if (ImGui::SliderInt("Volume", (int*)&volume, 0, 100))
+          {
+            resources.set_audio_gain((float)volume / 100);
+          }
+
           ImGui::EndTabItem();
         }
 
