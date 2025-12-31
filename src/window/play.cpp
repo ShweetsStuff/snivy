@@ -86,11 +86,15 @@ namespace game::window
     auto barMax = ImVec2(barMin.x + (spacing * 2.0f), barMin.y + size.y - (spacing * 4.0f));
 
     bool mouseHovering = ImGui::IsMouseHoveringRect(barMin, barMax);
+    auto endTimerProgress = (float)endTimer / endTimerMax;
 
     if (mouseHovering)
     {
+      auto color = RECT_COLOR;
+      //Ease out and back in again
+      color.w = isActive ? 1.0f : (4 * pow(endTimerProgress, 2) - 4 * endTimerProgress + 1);
       drawList->AddRect(ImVec2(barMin.x - 1, barMin.y - 1), ImVec2(barMax.x + 1, barMax.y + 1),
-                        ImGui::GetColorU32(RECT_COLOR));
+                        ImGui::GetColorU32(color));
     }
 
     drawList->AddRectFilled(barMin, barMax, ImGui::GetColorU32(BG_COLOR));
@@ -139,8 +143,6 @@ namespace game::window
         drawList->AddRectFilled(rectMin, rectMax, ImGui::GetColorU32(color));
       }
     };
-
-    auto endTimerProgress = (float)endTimer / endTimerMax;
 
     range_draw(challenge.range, isActive ? 1.0f : 0.0f);
 
