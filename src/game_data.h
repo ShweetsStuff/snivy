@@ -8,5 +8,6 @@ namespace game
   {
   public:
     MeasurementSystem measurementSystem{MeasurementSystem::METRIC};
+    int volume{100};
   };
 }

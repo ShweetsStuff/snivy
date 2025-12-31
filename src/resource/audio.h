@@ -10,7 +10,7 @@ namespace game::resource
     MIX_Audio* internal{nullptr};
     MIX_Track* track{nullptr};
     int* refCount{nullptr};
-    MIX_Mixer* mixer_get();
+    static MIX_Mixer* mixer_get();
     void unload();
     void retain();
     void release();
@@ -27,5 +27,6 @@ namespace game::resource
     void play(bool isLoop = false);
     void stop();
     bool is_playing() const;
+    static void set_gain(float vol);
   };
 }

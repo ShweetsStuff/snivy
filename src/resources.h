@@ -124,5 +124,6 @@ namespace game
 
     Resources();
     void sound_play(audio::Type);
+    void set_audio_gain(float vol);
   };
 }
