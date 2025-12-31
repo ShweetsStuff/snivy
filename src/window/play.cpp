@@ -85,6 +85,18 @@ namespace game::window
     auto barMin = ImVec2(position.x + (size.x * 0.5f) - (spacing * 0.5f), position.y + (spacing * 2.0f));
     auto barMax = ImVec2(barMin.x + (spacing * 2.0f), barMin.y + size.y - (spacing * 4.0f));
 
+    bool mouseHovering = ImGui::IsMouseHoveringRect(barMin, barMax);
+    auto endTimerProgress = (float)endTimer / endTimerMax;
+
+    if (mouseHovering)
+    {
+      auto color = RECT_COLOR;
+      //Ease out and back in again
+      color.w = isActive ? 1.0f : (4 * pow(endTimerProgress, 2) - 4 * endTimerProgress + 1);
+      drawList->AddRect(ImVec2(barMin.x - 1, barMin.y - 1), ImVec2(barMax.x + 1, barMax.y + 1),
+                        ImGui::GetColorU32(color));
+    }
+
     drawList->AddRectFilled(barMin, barMax, ImGui::GetColorU32(BG_COLOR));
 
     auto barWidth = barMax.x - barMin.x;
@@ -132,8 +144,6 @@ namespace game::window
       }
     };
 
-    auto endTimerProgress = (float)endTimer / endTimerMax;
-
     range_draw(challenge.range, isActive ? 1.0f : 0.0f);
 
     auto lineMin = ImVec2(barMin.x - LINE_WIDTH_BONUS, barMin.y + (barHeight * tryValue));
@@ -171,8 +181,7 @@ namespace game::window
         }
       }
 
-      if (ImGui::IsKeyPressed(ImGuiKey_Space) ||
-          (ImGui::IsMouseHoveringRect(barMin, barMax) && ImGui::IsMouseClicked(ImGuiMouseButton_Left)))
+      if (ImGui::IsKeyPressed(ImGuiKey_Space) || (mouseHovering && ImGui::IsMouseClicked(ImGuiMouseButton_Left)))
       {
         Grade grade{MISS};
         auto subRanges = sub_ranges_get(challenge.range);
