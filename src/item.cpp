@@ -38,10 +38,10 @@ namespace game
 
   void Item::tick() { Actor::tick(); }
 
-  void Item::update(Resources& resources)
+  void Item::update(Resources& resources, Camera& camera)
   {
-    auto bounds = ivec4(position.x - SIZE * 0.5f, position.y - SIZE * 0.5f, SIZE, SIZE);
-    auto mousePos = ivec2(ImGui::GetMousePos().x, ImGui::GetMousePos().y);
+    auto itemRect = ivec4(position.x - SIZE * 0.5f, position.y - SIZE * 0.5f, SIZE, SIZE);
+    auto mousePos = camera.to_world(vec2(ImGui::GetMousePos().x, ImGui::GetMousePos().y));
 
     if (isHeld)
     {
@@ -65,7 +65,7 @@ namespace game
         isHeld = false;
       }
     }
-    else if (math::is_point_in_rect(bounds, mousePos))
+    else if (math::is_point_in_rect(itemRect, mousePos))
     {
       hoveredItem = this;
 

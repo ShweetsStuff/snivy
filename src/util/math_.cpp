@@ -25,10 +25,11 @@ namespace game::util::math
     return model;
   }
 
+  //TODO: Possibly redundant and equivalent to quad_model_get() with a size of (1, 1)?
   mat4 quad_model_parent_get(vec2 position, vec2 pivot, vec2 scale, float rotation)
   {
-    vec2 scaleSign = glm::sign(scale);
     vec2 scaleAbsolute = glm::abs(scale);
+    vec2 scaleSign = glm::sign(scale);
     float handedness = (scaleSign.x * scaleSign.y) < 0.0f ? -1.0f : 1.0f;
 
     mat4 local(1.0f);

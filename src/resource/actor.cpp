@@ -338,7 +338,7 @@ namespace game::resource
     return glm::vec4(worldPosition - halfSize, scaledSize);
   }
 
-  void Actor::render(Shader& textureShader, Shader& rectShader, Canvas& canvas)
+  void Actor::render(Shader& textureShader, Shader& rectShader, Canvas& canvas, Camera& camera, bool worldCoords)
   {
     if (!anm2) return;
     auto animation = animation_get();
@@ -365,8 +365,10 @@ namespace game::resource
       }
     }
 
-    auto rootModel =
-        math::quad_model_parent_get(root.position + position, root.pivot, math::to_unit(root.scale), root.rotation);
+    auto rootModel = worldCoords ? math::quad_model_parent_get(root.position + position, root.pivot,
+                                                               math::to_unit(root.scale), root.rotation)
+                                 : camera.get_root_model(root.position + position, root.pivot,
+                                                         math::to_unit(root.scale), root.rotation);
 
     for (auto& i : animation->layerOrder)
     {

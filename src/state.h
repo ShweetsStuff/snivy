@@ -2,6 +2,7 @@
 
 #include <SDL3/SDL.h>
 
+#include "camera.h"
 #include "character.h"
 #include "cursor.h"
 #include "item.h"
@@ -27,6 +28,7 @@ namespace game
 
     Character character{&resources.anm2s[anm2::CHARACTER], glm::vec2(300, 500)};
     Cursor cursor{&resources.anm2s[anm2::CURSOR]};
+    Camera camera{};
 
     std::vector<Item> items{};
 
