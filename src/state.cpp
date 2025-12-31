@@ -123,8 +123,7 @@ namespace game
                                   ((Item::SPAWN_Y_MAX - Item::SPAWN_Y_MIN) * math::random()) + Item::SPAWN_Y_MIN);
         items.emplace_back(&resources.anm2s[anm2::ITEMS], position, type);
 
-        inventory.values[type]--;
-        if (inventory.values[type] == 0) inventory.values.erase(type);
+        inventory.adjust_item(type, -1);
         type = Item::NONE;
         inventory.isQueued = false;
       }
@@ -159,7 +158,7 @@ namespace game
       {
         if (Item::queuedReturnItem->state == Item::DEFAULT)
         {
-          inventory.values[item.type]++;
+          inventory.adjust_item(item.type);
           resources.sound_play(audio::RETURN);
         }
         else

@@ -123,9 +123,16 @@ namespace game::window
             ImGui::PushItemWidth(100);
             for (int i = 0; i < Item::ITEM_COUNT; i++)
             {
-              if (i == Item::INVALID) continue;
+              if (Item::CATEGORIES[i] == Item::INVALID) continue;
               ImGui::PushID(i);
-              ImGui::DragInt(Item::NAMES[i], &inventory.values[(Item::Type)i], 0.1f, 0, 999);
+
+              //TODO: Probably a cleaner way to do this, maybe
+              int value = inventory.get_item((Item::Type)i);
+              if (ImGui::DragInt(Item::NAMES[i], &value, 0.1f, 0, 999))
+              {
+                inventory.set_item((Item::Type)i, value);
+              }
+
               ImGui::PopID();
             }
             ImGui::PopItemWidth();
