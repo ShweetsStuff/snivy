@@ -236,6 +236,6 @@ namespace game
     Item(anm2::Anm2*, glm::ivec2, Type);
     void state_set(State);
     void tick();
-    void update(Resources& resources);
+    void update(Resources& resources, Camera& camera);
   };
 }

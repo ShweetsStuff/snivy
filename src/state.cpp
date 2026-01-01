@@ -58,8 +58,20 @@ namespace game
     while (SDL_PollEvent(&event))
     {
       ImGui_ImplSDL3_ProcessEvent(&event);
-      if (event.type == SDL_EVENT_QUIT) isRunning = false;
+
+      switch (event.type)
+      {
+        case SDL_EVENT_QUIT:
+          isRunning = false;
+          break;
+        case SDL_EVENT_WINDOW_RESIZED:
+          SDL_GetWindowSize(window, &width, &height);
+          canvas.size = vec2(width, height);
+          camera.on_resize(width, height);
+          break;
+      }
     }
+
     if (!isRunning) return;
 
     ImGui_ImplOpenGL3_NewFrame();
@@ -139,7 +151,7 @@ namespace game
     {
       auto& item = items[i];
 
-      item.update(resources);
+      item.update(resources, camera);
 
       if (&item == Item::heldItem && &item != &items.back())
       {
@@ -328,9 +340,10 @@ namespace game
     if (isSpeak && dialogueIDs) textWindow.set_random(*dialogueIDs, resources, character);
 
     /* Rubbing/Grabbing */
-    bool isHeadRubPossible = math::is_point_in_rectf(character.head_rect_get(), cursor.position) && !Item::heldItem;
-    bool isBellyRubPossible = math::is_point_in_rectf(character.belly_rect_get(), cursor.position) && !Item::heldItem;
-    bool isTailRubPossible = math::is_point_in_rectf(character.tail_rect_get(), cursor.position) && !Item::heldItem;
+    auto cursorPosition = camera.to_world(cursor.position);
+    bool isHeadRubPossible = math::is_point_in_rectf(character.head_rect_get(), cursorPosition) && !Item::heldItem;
+    bool isBellyRubPossible = math::is_point_in_rectf(character.belly_rect_get(), cursorPosition) && !Item::heldItem;
+    bool isTailRubPossible = math::is_point_in_rectf(character.tail_rect_get(), cursorPosition) && !Item::heldItem;
     auto isRubPossible = isHeadRubPossible || isBellyRubPossible || isTailRubPossible;
 
     if (isRubPossible)
@@ -381,6 +394,8 @@ namespace game
 
     SDL_HideCursor();
     cursor.update();
+
+    camera.update();
   }
 
   void State::render()
@@ -398,18 +413,20 @@ namespace game
 
     canvas.clear(glm::vec4(0, 0, 0, 1));
 
-    auto bgModel = math::quad_model_get(vec2(width, height));
-    canvas.texture_render(textureShader, resources.textures[texture::BG].id, bgModel);
+    auto bg = resources.textures[texture::BG];
+    auto bgModel = camera.get_model(bg.size);
+
+    canvas.texture_render(textureShader, bg.id, bgModel);
 
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-    character.render(textureShader, rectShader, canvas);
+    character.render(textureShader, rectShader, canvas, camera);
 
     for (auto& item : items)
-      item.render(textureShader, rectShader, canvas);
+      item.render(textureShader, rectShader, canvas, camera);
 
-    cursor.render(textureShader, rectShader, canvas);
+    cursor.render(textureShader, rectShader, canvas, camera, true);
 
     canvas.unbind();
 

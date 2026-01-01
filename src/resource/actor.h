@@ -2,6 +2,7 @@
 
 #include <unordered_set>
 
+#include "../camera.h"
 #include "../canvas.h"
 #include "anm2.h"
 
@@ -73,7 +74,8 @@ namespace game::resource
     bool is_event(const std::string& event);
     void tick();
     bool is_playing(const std::string& name = {});
-    void render(Shader& textureShader, Shader& rectShader, Canvas&);
+    void render(Shader& textureShader, Shader& rectShader, Canvas& canvas, game::Camera& camera,
+                bool screenCoords = false);
     glm::vec4 null_frame_rect(int = -1);
     void consume_played_event();
   };

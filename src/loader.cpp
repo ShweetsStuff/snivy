@@ -57,7 +57,7 @@ namespace game
 #endif
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
-    window = SDL_CreateWindow("Snivy", SIZE.x, SIZE.y, SDL_WINDOW_OPENGL);
+    window = SDL_CreateWindow("Snivy", SIZE.x, SIZE.y, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
     if (!window)
     {
