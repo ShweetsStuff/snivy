@@ -16,10 +16,14 @@ namespace game
     glm::vec2 targetSize{Loader::SIZE};
     glm::vec2 actualSize{Loader::SIZE};
 
+    glm::vec2 maxPos{glm::vec2(Loader::SIZE.x / 4, Loader::SIZE.y / 4)};
+    glm::vec2 minPos{glm::vec2(-(Loader::SIZE.x / 4), -(Loader::SIZE.y / 4))};
+
     glm::vec2 cameraPosition{glm::vec2(0, 0)};
     glm::vec2 cropOffset{glm::vec2(0, 0)};
 
     float cropScale{1.0f};
+    float cameraScale{1.0f};
 
   public:
     void on_resize(int width, int height);

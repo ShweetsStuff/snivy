@@ -32,24 +32,38 @@ namespace game
 
   void Camera::update()
   {
+    vec2 delta = vec2();
+
     if (ImGui::IsKeyDown(ImGuiKey_UpArrow) || ImGui::IsKeyDown(ImGuiKey_W))
     {
-      cameraPosition.y -= 1;
+      delta.y += 2;
     }
 
     if (ImGui::IsKeyDown(ImGuiKey_DownArrow) || ImGui::IsKeyDown(ImGuiKey_S))
     {
-      cameraPosition.y += 1;
+      delta.y -= 2;
     }
 
     if (ImGui::IsKeyDown(ImGuiKey_LeftArrow) || ImGui::IsKeyDown(ImGuiKey_A))
     {
-      cameraPosition.x -= 1;
+      delta.x += 2;
     }
 
     if (ImGui::IsKeyDown(ImGuiKey_RightArrow) || ImGui::IsKeyDown(ImGuiKey_D))
     {
-      cameraPosition.x += 1;
+      delta.x -= 2;
+    }
+
+    cameraPosition = glm::clamp(cameraPosition + delta, minPos, maxPos);
+
+    if (ImGui::IsKeyDown(ImGuiKey_Equal))
+    {
+      cameraScale = std::min(1.5f, cameraScale + 0.01f);
+    }
+
+    if (ImGui::IsKeyDown(ImGuiKey_Minus))
+    {
+      cameraScale = std::max(0.75f, cameraScale - 0.01f);
     }
   }
 
@@ -58,7 +72,7 @@ namespace game
   {
     auto canvasPosition = to_screen(position);
 
-    glm::mat4 model = math::quad_model_get(size, canvasPosition, pivot, scale * cropScale, rotation);
+    glm::mat4 model = math::quad_model_get(size, canvasPosition, pivot, scale * cropScale * cameraScale, rotation);
 
     return model;
   }
@@ -68,7 +82,7 @@ namespace game
   {
     auto canvasPosition = to_screen(position);
 
-    auto model = math::quad_model_parent_get(canvasPosition, pivot, scale * cropScale, rotation);
+    auto model = math::quad_model_parent_get(canvasPosition, pivot, scale * cropScale * cameraScale, rotation);
 
     return model;
   }
@@ -77,10 +91,16 @@ namespace game
   {
     auto canvasPosition = to_screen(position);
 
-    return ivec4(canvasPosition.x, canvasPosition.y, canvasPosition.x + size.x * cropScale,
+    return ivec4(canvasPosition.x, canvasPosition.y, canvasPosition.x + size.x * cropScale * cameraScale,
                  canvasPosition.y + size.y * cropScale);
   }
 
-  ivec2 Camera::to_screen(vec2 world) { return (world + cameraPosition) / targetSize * actualSize + cropOffset; }
-  ivec2 Camera::to_world(vec2 screen) { return (screen - cropOffset) / actualSize * targetSize - cameraPosition; }
+  ivec2 Camera::to_screen(vec2 world)
+  {
+    return (world + cameraPosition) / targetSize * actualSize * cameraScale + cropOffset;
+  }
+  ivec2 Camera::to_world(vec2 screen)
+  {
+    return (screen - cropOffset) / cameraScale / actualSize * targetSize - cameraPosition;
+  }
 }
