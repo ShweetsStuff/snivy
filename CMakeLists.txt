@@ -157,6 +157,12 @@ if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
                 "$<$<CONFIG:Release>:/O2>"
                 "$<$<CONFIG:Release>:/DNDEBUG>"
         )
+        if(WIN32)
+            target_link_options(${PROJECT_NAME} PRIVATE
+                    "/SUBSYSTEM:WINDOWS"
+                    "/ENTRY:mainCRTStartup"
+            )
+        endif()
         target_link_options(${PROJECT_NAME} PRIVATE
                 "$<$<CONFIG:Release>:/DEBUG:NONE>"
                 "$<$<CONFIG:Release>:/INCREMENTAL:NO>"
@@ -168,6 +174,11 @@ if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
                 "$<$<CONFIG:Release>:-O3>"
                 "$<$<CONFIG:Release>:-DNDEBUG>"
         )
+        if(WIN32)
+            target_link_options(${PROJECT_NAME} PRIVATE
+                    "-mwindows"
+            )
+        endif()
         target_link_options(${PROJECT_NAME} PRIVATE
                 "$<$<CONFIG:Release>:-s>"
         )
