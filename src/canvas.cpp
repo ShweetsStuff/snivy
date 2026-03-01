@@ -1,8 +1,14 @@
-#include "canvas.h"
+#include "canvas.hpp"
 #include <glm/gtc/type_ptr.hpp>
+
+#include <utility>
+
+#include "util/imgui.hpp"
+#include "util/math.hpp"
 
 using namespace glm;
 using namespace game::resource;
+using namespace game::util;
 
 namespace game
 {
@@ -13,16 +19,16 @@ namespace game
   GLuint Canvas::rectVBO = 0;
   bool Canvas::isStaticInit = false;
 
-  Canvas::Canvas(vec2 size, bool isDefault)
+  Canvas::Canvas(ivec2 size, Flags flags)
   {
     this->size = size;
+    this->flags = flags;
 
-    if (isDefault)
+    if ((flags & DEFAULT) != 0)
     {
       fbo = 0;
       rbo = 0;
       texture = 0;
-      this->isDefault = true;
     }
     else
     {
@@ -69,7 +75,6 @@ namespace game
 
       glBindVertexArray(0);
 
-      // Rect
       glGenVertexArrays(1, &rectVAO);
       glGenBuffers(1, &rectVBO);
 
@@ -82,12 +87,47 @@ namespace game
       glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
 
       glBindVertexArray(0);
+
+      isStaticInit = true;
     }
+  }
+
+  Canvas::Canvas(const Canvas& other) : Canvas(other.size, other.flags)
+  {
+    pan = other.pan;
+    zoom = other.zoom;
+
+    if ((flags & DEFAULT) == 0 && (other.flags & DEFAULT) == 0)
+    {
+      glBindFramebuffer(GL_READ_FRAMEBUFFER, other.fbo);
+      glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fbo);
+      glBlitFramebuffer(0, 0, other.size.x, other.size.y, 0, 0, size.x, size.y, GL_COLOR_BUFFER_BIT, GL_NEAREST);
+      glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    }
+  }
+
+  Canvas::Canvas(Canvas&& other) noexcept
+  {
+    size = other.size;
+    pan = other.pan;
+    zoom = other.zoom;
+    flags = other.flags;
+    fbo = other.fbo;
+    rbo = other.rbo;
+    texture = other.texture;
+
+    other.size = {};
+    other.pan = {};
+    other.zoom = 100.0f;
+    other.flags = FLIP;
+    other.fbo = 0;
+    other.rbo = 0;
+    other.texture = 0;
   }
 
   Canvas::~Canvas()
   {
-    if (!isDefault)
+    if ((flags & DEFAULT) == 0)
     {
       if (fbo) glDeleteFramebuffers(1, &fbo);
       if (rbo) glDeleteRenderbuffers(1, &rbo);
@@ -95,15 +135,66 @@ namespace game
     }
   }
 
-  mat4 Canvas::view_get() const { return mat4{1.0f}; }
-  mat4 Canvas::projection_get() const
+  Canvas& Canvas::operator=(const Canvas& other)
   {
-    if (isDefault) return glm::ortho(0.0f, (float)size.x, (float)size.y, 0.0f, -1.0f, 1.0f);
-    return glm::ortho(0.0f, (float)size.x, 0.0f, (float)size.y, -1.0f, 1.0f);
+    if (this == &other) return *this;
+    Canvas tmp(other);
+    *this = std::move(tmp);
+    return *this;
   }
 
-  void Canvas::texture_render(Shader& shader, GLuint textureId, mat4& model, vec4 tint, vec3 colorOffset,
-                              float* vertices) const
+  Canvas& Canvas::operator=(Canvas&& other) noexcept
+  {
+    if (this == &other) return *this;
+
+    if ((flags & DEFAULT) == 0)
+    {
+      if (fbo) glDeleteFramebuffers(1, &fbo);
+      if (rbo) glDeleteRenderbuffers(1, &rbo);
+      if (texture) glDeleteTextures(1, &texture);
+    }
+
+    size = other.size;
+    pan = other.pan;
+    zoom = other.zoom;
+    flags = other.flags;
+    fbo = other.fbo;
+    rbo = other.rbo;
+    texture = other.texture;
+
+    other.size = {};
+    other.pan = {};
+    other.zoom = 100.0f;
+    other.flags = FLIP;
+    other.fbo = 0;
+    other.rbo = 0;
+    other.texture = 0;
+
+    return *this;
+  }
+
+  mat4 Canvas::view_get() const
+  {
+    auto view = mat4{1.0f};
+    auto zoomFactor = math::to_unit(zoom);
+    auto panFactor = pan * zoomFactor;
+
+    view = glm::translate(view, vec3(-panFactor, 0.0f));
+    view = glm::scale(view, vec3(zoomFactor, zoomFactor, 1.0f));
+
+    return view;
+  }
+  mat4 Canvas::projection_get() const
+  {
+    if ((flags & FLIP) != 0)
+    {
+      return glm::ortho(0.0f, (float)size.x, 0.0f, (float)size.y, -1.0f, 1.0f);
+    }
+    return glm::ortho(0.0f, (float)size.x, (float)size.y, 0.0f, -1.0f, 1.0f);
+  }
+
+  void Canvas::texture_render(Shader& shader, GLuint textureID, mat4 model, vec4 tint, vec3 colorOffset,
+                              const float* vertices) const
   {
     glUseProgram(shader.id);
 
@@ -122,7 +213,7 @@ namespace game
     glBufferData(GL_ARRAY_BUFFER, sizeof(TEXTURE_VERTICES), vertices, GL_DYNAMIC_DRAW);
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureId);
+    glBindTexture(GL_TEXTURE_2D, textureID);
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -156,14 +247,30 @@ namespace game
     texture_render(shader, texture, model, tint, colorOffset);
   }
 
-  void Canvas::bind() const
+  void Canvas::bind()
   {
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
     glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+  }
+
+  void Canvas::size_set(ivec2 size)
+  {
+    if ((flags & DEFAULT) == 0 && (size.x != this->size.x || size.y != this->size.y))
+    {
+      glBindTexture(GL_TEXTURE_2D, texture);
+      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+      glBindTexture(GL_TEXTURE_2D, 0);
+
+      glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+      glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y);
+      glBindRenderbuffer(GL_RENDERBUFFER, 0);
+    }
+
+    this->size = size;
     glViewport(0, 0, size.x, size.y);
   }
 
-  void Canvas::clear(vec4 color) const
+  void Canvas::clear(vec4 color)
   {
     glClearColor(color.r, color.g, color.b, color.a);
     glClear(GL_COLOR_BUFFER_BIT);
@@ -175,5 +282,14 @@ namespace game
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
   }
 
-  bool Canvas::is_valid() const { return fbo != 0 || isDefault; };
+  bool Canvas::is_valid() const { return (flags & DEFAULT) != 0 || fbo != 0; };
+
+  glm::vec2 Canvas::screen_position_convert(glm::vec2 position) const
+  {
+    auto viewport = ImGui::GetMainViewport();
+    auto viewportPos = imgui::to_vec2(viewport->Pos);
+    auto localPosition = position - viewportPos;
+    auto zoomFactor = math::to_unit(zoom);
+    return pan + (localPosition / zoomFactor);
+  }
 }

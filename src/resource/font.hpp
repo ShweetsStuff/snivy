@@ -1,20 +1,28 @@
 #pragma once
 
-#include "imgui.h"
-#include <string>
+#include <filesystem>
+
+#include <imgui.h>
+
+#include "../util/physfs.hpp"
 
 namespace game::resource
 {
   class Font
   {
+    ImFont* internal{};
+
   public:
-    ImFont* internal;
+    static constexpr auto NORMAL = 20;
+    static constexpr auto ABOVE_AVERAGE = 24;
+    static constexpr auto BIG = 30;
+    static constexpr auto HEADER_3 = 40;
+    static constexpr auto HEADER_2 = 50;
+    static constexpr auto HEADER_1 = 60;
 
-    static constexpr auto NORMAL = 12;
-    static constexpr auto BIG = 16;
-    static constexpr auto LARGE = 24;
-
-    Font(const std::string&, float = NORMAL);
+    Font() = default;
+    Font(const std::filesystem::path&, float = NORMAL);
+    Font(const util::physfs::Path&, float = NORMAL);
     ImFont* get();
   };
 }

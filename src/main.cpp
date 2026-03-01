@@ -4,8 +4,8 @@
   #include <emscripten/emscripten.h>
 #endif
 
-#include "loader.h"
-#include "state.h"
+#include "loader.hpp"
+#include "state.hpp"
 
 using namespace game;
 
@@ -19,13 +19,13 @@ static void emscripten_loop(void* arg)
 }
 #endif
 
-int main()
+int main(int argc, const char** argv)
 {
-  Loader loader;
+  Loader loader(argc, argv);
 
   if (loader.isError) return EXIT_FAILURE;
 
-  State state(loader.window, loader.context, Loader::SIZE);
+  State state(loader.window, loader.context, loader.settings);
 
 #ifdef __EMSCRIPTEN__
   emscripten_set_main_loop_arg(emscripten_loop, &state, 0, true);

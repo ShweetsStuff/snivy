@@ -1,20 +1,22 @@
 #pragma once
 
-#include "glm/ext/vector_float2.hpp"
+#include "resource/xml/settings.hpp"
 #include <SDL3/SDL.h>
+#include <glm/ext/vector_float2.hpp>
 
 namespace game
 {
   class Loader
   {
   public:
-    static constexpr glm::vec2 SIZE = {1080, 720};
+    static constexpr glm::vec2 SIZE = {1280, 720};
 
     SDL_Window* window{};
     SDL_GLContext context{};
     bool isError{};
+    resource::xml::Settings settings;
 
-    Loader();
+    Loader(int argc, const char** argv);
     ~Loader();
   };
 

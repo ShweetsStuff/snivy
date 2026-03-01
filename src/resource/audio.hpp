@@ -2,22 +2,24 @@
 
 #include <SDL3_mixer/SDL_mixer.h>
 #include <filesystem>
+#include <memory>
+
+#include "../util/physfs.hpp"
 
 namespace game::resource
 {
   class Audio
   {
-    MIX_Audio* internal{nullptr};
-    MIX_Track* track{nullptr};
-    int* refCount{nullptr};
     static MIX_Mixer* mixer_get();
     void unload();
-    void retain();
-    void release();
+
+    std::shared_ptr<MIX_Audio> internal{};
+    MIX_Track* track{nullptr};
 
   public:
     Audio() = default;
     Audio(const std::filesystem::path&);
+    Audio(const util::physfs::Path&);
     Audio(const Audio&);
     Audio(Audio&&) noexcept;
     Audio& operator=(const Audio&);
@@ -27,6 +29,6 @@ namespace game::resource
     void play(bool isLoop = false);
     void stop();
     bool is_playing() const;
-    static void set_gain(float vol);
+    static void volume_set(float volume);
   };
 }

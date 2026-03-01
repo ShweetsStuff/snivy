@@ -6,8 +6,12 @@
   #include <glad/glad.h>
 #endif
 
+#include <cstdint>
 #include <filesystem>
 #include <glm/ext/vector_int2.hpp>
+#include <memory>
+
+#include "../util/physfs.hpp"
 
 namespace game::resource
 {
@@ -29,10 +33,10 @@ namespace game::resource
     Texture& operator=(const Texture&);
     Texture& operator=(Texture&&) noexcept;
     Texture(const std::filesystem::path&);
+    Texture(const util::physfs::Path&);
+    void init(const uint8_t*);
 
   private:
-    int* refCount{nullptr};
-    void retain();
-    void release();
+    std::shared_ptr<GLuint> idShared{};
   };
 }

@@ -1,0 +1,233 @@
+#include "character.hpp"
+
+#include <tinyxml2/tinyxml2.h>
+
+#include "../../log.hpp"
+#include "../../util/preferences.hpp"
+#include "util.hpp"
+
+using namespace tinyxml2;
+using namespace game::util;
+
+namespace game::resource::xml
+{
+  Character::Character(const std::filesystem::path& path)
+  {
+    XMLDocument document;
+
+    physfs::Archive archive(path, path.filename().string());
+
+    if (!archive.is_valid())
+    {
+      logger.error(std::format("Failed to initialize character from PhysicsFS archive: {} ({})", path.string(),
+                               physfs::error_get()));
+      return;
+    }
+
+    physfs::Path characterPath(archive + "/" + "character.xml");
+
+    if (document_load(characterPath, document) != XML_SUCCESS) return;
+
+    if (auto root = document.RootElement())
+    {
+      std::string textureRootPath{};
+      query_string_attribute(root, "TextureRootPath", &textureRootPath);
+
+      std::string soundRootPath{};
+      query_string_attribute(root, "SoundRootPath", &soundRootPath);
+
+      query_anm2(root, "Anm2", archive, textureRootPath, anm2);
+      query_string_attribute(root, "Name", &name);
+
+      root->QueryFloatAttribute("Weight", &weight);
+      root->QueryFloatAttribute("WeightMin", &weightMin);
+      root->QueryFloatAttribute("WeightMax", &weightMax);
+
+      root->QueryFloatAttribute("Capacity", &capacity);
+      root->QueryFloatAttribute("CapacityMin", &capacityMin);
+      root->QueryFloatAttribute("CapacityMax", &capacityMax);
+      root->QueryFloatAttribute("CapacityMaxMultiplier", &capacityMaxMultiplier);
+      root->QueryFloatAttribute("CapacityIfOverStuffedOnDigestBonus", &capacityIfOverStuffedOnDigestBonus);
+
+      root->QueryFloatAttribute("CaloriesToKilogram", &caloriesToKilogram);
+
+      root->QueryFloatAttribute("DigestionRate", &digestionRate);
+      root->QueryFloatAttribute("DigestionRateMin", &digestionRateMin);
+      root->QueryFloatAttribute("DigestionRateMax", &digestionRateMax);
+      root->QueryIntAttribute("DigestionTimerMax", &digestionTimerMax);
+
+      root->QueryFloatAttribute("EatSpeed", &eatSpeed);
+      root->QueryFloatAttribute("EatSpeedMin", &eatSpeedMin);
+      root->QueryFloatAttribute("EatSpeedMax", &eatSpeedMax);
+
+      root->QueryFloatAttribute("BlinkChance", &blinkChance);
+      root->QueryFloatAttribute("GurgleChance", &gurgleChance);
+      root->QueryFloatAttribute("GurgleCapacityMultiplier", &gurgleCapacityMultiplier);
+
+      auto dialoguePath = physfs::Path(archive + "/" + "dialogue.xml");
+
+      if (!dialoguePath.is_valid())
+        logger.warning(std::format("No character dialogue.xml file found: {}", path.string()));
+      else
+        dialogue = Dialogue(dialoguePath);
+
+      dialogue.query_pool_id(root, "DialoguePoolID", pool.id);
+
+      if (auto element = root->FirstChildElement("AlternateSpritesheet"))
+      {
+        query_texture(element, "Texture", archive, textureRootPath, alternateSpritesheet.texture);
+        query_sound(element, "Sound", archive, soundRootPath, alternateSpritesheet.sound);
+        element->QueryIntAttribute("ID", &alternateSpritesheet.id);
+        element->QueryFloatAttribute("ChanceOnNewGame", &alternateSpritesheet.chanceOnNewGame);
+      }
+
+      if (auto element = root->FirstChildElement("Animations"))
+      {
+        query_animation_entry_collection(element, "FinishFood", animations.finishFood);
+        query_animation_entry_collection(element, "PostDigest", animations.postDigest);
+
+        if (auto child = element->FirstChildElement("Idle"))
+          query_string_attribute(child, "Animation", &animations.idle);
+
+        if (auto child = element->FirstChildElement("IdleFull"))
+          query_string_attribute(child, "Animation", &animations.idleFull);
+
+        if (auto child = element->FirstChildElement("StageUp"))
+          query_string_attribute(child, "Animation", &animations.stageUp);
+      }
+
+      if (auto element = root->FirstChildElement("Sounds"))
+      {
+        query_sound_entry_collection(element, "Digest", archive, soundRootPath, sounds.digest);
+        query_sound_entry_collection(element, "Gurgle", archive, soundRootPath, sounds.gurgle);
+      }
+
+      if (auto element = root->FirstChildElement("Overrides"))
+      {
+        if (auto child = element->FirstChildElement("Talk"))
+        {
+          query_layer_id(child, "LayerSource", anm2, talkOverride.layerSource);
+          query_layer_id(child, "LayerDestination", anm2, talkOverride.layerDestination);
+        }
+
+        if (auto child = element->FirstChildElement("Blink"))
+        {
+          query_layer_id(child, "LayerSource", anm2, blinkOverride.layerSource);
+          query_layer_id(child, "LayerDestination", anm2, blinkOverride.layerDestination);
+        }
+      }
+
+      if (auto element = root->FirstChildElement("Stages"))
+      {
+        for (auto child = element->FirstChildElement("Stage"); child; child = child->NextSiblingElement("Stage"))
+        {
+          Stage stage{};
+          child->QueryFloatAttribute("Threshold", &stage.threshold);
+          child->QueryIntAttribute("AreaID", &stage.areaID);
+          dialogue.query_pool_id(child, "DialoguePoolID", stage.pool.id);
+          stages.emplace_back(std::move(stage));
+        }
+      }
+
+      if (auto element = root->FirstChildElement("EatAreas"))
+      {
+        for (auto child = element->FirstChildElement("EatArea"); child; child = child->NextSiblingElement("EatArea"))
+        {
+          EatArea eatArea{};
+          query_null_id(child, "Null", anm2, eatArea.nullID);
+          query_event_id(child, "Event", anm2, eatArea.eventID);
+          query_string_attribute(child, "Animation", &eatArea.animation);
+
+          eatAreas.emplace_back(std::move(eatArea));
+        }
+      }
+
+      if (auto element = root->FirstChildElement("ExpandAreas"))
+      {
+        for (auto child = element->FirstChildElement("ExpandArea"); child;
+             child = child->NextSiblingElement("ExpandArea"))
+        {
+          ExpandArea expandArea{};
+
+          query_layer_id(child, "Layer", anm2, expandArea.layerID);
+          query_null_id(child, "Null", anm2, expandArea.nullID);
+          child->QueryFloatAttribute("ScaleAdd", &expandArea.scaleAdd);
+
+          expandAreas.emplace_back(std::move(expandArea));
+        }
+      }
+
+      if (auto element = root->FirstChildElement("InteractAreas"))
+      {
+        for (auto child = element->FirstChildElement("InteractArea"); child;
+             child = child->NextSiblingElement("InteractArea"))
+        {
+          InteractArea interactArea{};
+
+          if (child->FindAttribute("Layer")) query_layer_id(child, "Layer", anm2, interactArea.layerID);
+
+          query_null_id(child, "Null", anm2, interactArea.nullID);
+          query_string_attribute(child, "Animation", &interactArea.animation);
+          query_string_attribute(child, "AnimationFull", &interactArea.animationFull);
+          query_string_attribute(child, "AnimationCursorHover", &interactArea.animationCursorHover);
+          query_string_attribute(child, "AnimationCursorActive", &interactArea.animationCursorActive);
+          query_sound_entry_collection(child, "Sound", archive, soundRootPath, interactArea.sound, "Path");
+          dialogue.query_pool_id(child, "DialoguePoolID", interactArea.pool.id);
+          child->QueryFloatAttribute("DigestionBonusRub", &interactArea.digestionBonusRub);
+          child->QueryFloatAttribute("DigestionBonusClick", &interactArea.digestionBonusClick);
+          child->QueryFloatAttribute("Time", &interactArea.time);
+          child->QueryFloatAttribute("ScaleEffectAmplitude", &interactArea.scaleEffectAmplitude);
+          child->QueryFloatAttribute("ScaleEffectCycles", &interactArea.scaleEffectCycles);
+
+          std::string typeString{};
+          query_string_attribute(child, "Type", &typeString);
+
+          for (int i = 0; i < (int)std::size(INTERACT_TYPE_STRINGS); i++)
+            if (typeString == INTERACT_TYPE_STRINGS[i]) interactArea.type = (InteractType)i;
+
+          interactAreas.emplace_back(std::move(interactArea));
+        }
+      }
+    }
+
+    auto itemSchemaPath = physfs::Path(archive + "/" + "items.xml");
+
+    if (auto itemSchemaPath = physfs::Path(archive + "/" + "items.xml"); itemSchemaPath.is_valid())
+      itemSchema = Item(itemSchemaPath);
+    else
+      logger.warning(std::format("No character items.xml file found: {}", path.string()));
+
+    if (auto areaSchemaPath = physfs::Path(archive + "/" + "areas.xml"); areaSchemaPath.is_valid())
+      areaSchema = Area(areaSchemaPath);
+    else
+      logger.warning(std::format("No character areas.xml file found: {}", path.string()));
+
+    if (auto menuSchemaPath = physfs::Path(archive + "/" + "menu.xml"); menuSchemaPath.is_valid())
+      menuSchema = Menu(menuSchemaPath);
+    else
+      logger.warning(std::format("No character menu.xml file found: {}", path.string()));
+
+    if (auto cursorSchemaPath = physfs::Path(archive + "/" + "cursor.xml"); cursorSchemaPath.is_valid())
+      cursorSchema = Cursor(cursorSchemaPath);
+    else
+      logger.warning(std::format("No character cursor.xml file found: {}", path.string()));
+
+    if (auto playSchemaPath = physfs::Path(archive + "/" + "play.xml"); playSchemaPath.is_valid())
+      playSchema = Play(playSchemaPath, dialogue);
+    else
+      logger.warning(std::format("No character play.xml file found: {}", path.string()));
+
+    logger.info(std::format("Initialized character: {}", name));
+
+    this->path = path;
+    save = Save(save_path_get());
+  }
+
+  std::filesystem::path Character::save_path_get()
+  {
+    auto savePath = path.stem();
+    savePath = preferences::path() / "saves" / savePath.replace_extension(".save");
+    std::filesystem::create_directories(savePath.parent_path());
+    return savePath;
+  }
+}

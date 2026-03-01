@@ -13,9 +13,6 @@
 [submodule "external/tinyxml2"]
 	path = external/tinyxml2
 	url = https://github.com/leethomason/tinyxml2
-[submodule "external/libanm2"]
-	path = external/libanm2
-	url = https://github.com/shweetsstuff/libanm2
 [submodule "external/physfs"]
 	path = external/physfs
 	url = https://github.com/icculus/physfs

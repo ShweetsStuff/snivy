@@ -1,6 +1,6 @@
-#include "shader.h"
+#include "shader.hpp"
 
-#include <iostream>
+#include "../log.hpp"
 
 namespace game::resource
 {
@@ -20,7 +20,7 @@ namespace game::resource
         glGetShaderiv(shaderHandle, GL_INFO_LOG_LENGTH, &logLength);
         std::string log(logLength, '\0');
         if (logLength > 0) glGetShaderInfoLog(shaderHandle, logLength, nullptr, log.data());
-        std::cout << "Failed to compile shader: " << log << '\n';
+        logger.error(std::format("Failed to compile shader: {}", log));
         return false;
       }
       return true;
@@ -49,11 +49,11 @@ namespace game::resource
     if (!isLinked)
     {
       glDeleteProgram(id);
+      logger.error(std::format("Failed to link shader: {}", id));
       id = 0;
-      std::cout << "Failed to link shader: " << id << "\n";
     }
     else
-      std::cout << "Initialized shader: " << id << "\n";
+      logger.info(std::format("Initialized shader: {}", id));
 
     glDeleteShader(vertexHandle);
     glDeleteShader(fragmentHandle);

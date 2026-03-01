@@ -1,0 +1,36 @@
+#pragma once
+
+#include "../../util/measurement.hpp"
+#include <filesystem>
+
+#include <glm/glm.hpp>
+
+namespace game::resource::xml
+{
+  class Settings
+  {
+  public:
+    static constexpr auto VOLUME_MIN = 0;
+    static constexpr auto VOLUME_MAX = 100;
+
+    enum Mode
+    {
+      LOADER,
+      IMGUI
+    };
+
+    util::measurement::System measurementSystem{util::measurement::METRIC};
+    int volume{VOLUME_MAX};
+
+    glm::vec3 color{0.09, 0.2196, 0.37};
+    glm::ivec2 windowSize{1280, 720};
+    glm::vec2 windowPosition{};
+
+    bool isValid{};
+
+    Settings() = default;
+    Settings(const std::filesystem::path&);
+    void serialize(const std::filesystem::path&);
+    bool is_valid() const;
+  };
+}

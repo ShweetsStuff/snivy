@@ -6,7 +6,7 @@
   #include <glad/glad.h>
 #endif
 
-#include "resource/shader.h"
+#include "resource/shader.hpp"
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/matrix_transform.hpp>
 #include <glm/glm.hpp>
@@ -30,27 +30,45 @@ namespace game
     static bool isStaticInit;
 
   public:
+    static constexpr glm::vec4 CLEAR_COLOR = {0, 0, 0, 0};
+
+    enum Flag
+    {
+      DEFAULT = (1 << 0),
+      FLIP = (1 << 1)
+    };
+
+    using Flags = int;
+
     GLuint fbo{};
     GLuint rbo{};
     GLuint texture{};
 
-    glm::vec2 size{};
-
-    bool isDefault{};
+    glm::ivec2 size{};
+    glm::vec2 pan{};
+    float zoom{100.0f};
+    Flags flags{FLIP};
 
     Canvas() = default;
-    Canvas(glm::vec2, bool isDefault = false);
+    Canvas(glm::ivec2, Flags = FLIP);
+    Canvas(const Canvas&);
+    Canvas(Canvas&&) noexcept;
     ~Canvas();
+    Canvas& operator=(const Canvas&);
+    Canvas& operator=(Canvas&&) noexcept;
     glm::mat4 transform_get() const;
     glm::mat4 view_get() const;
     glm::mat4 projection_get() const;
-    void texture_render(resource::Shader&, GLuint, glm::mat4&, glm::vec4 = glm::vec4(1.0f), glm::vec3 = {},
-                        float* = (float*)TEXTURE_VERTICES) const;
+    void texture_render(resource::Shader&, GLuint, glm::mat4, glm::vec4 = glm::vec4(1.0f), glm::vec3 = {},
+                        const float* = TEXTURE_VERTICES) const;
+    void texture_render(resource::Shader&, const Canvas&, glm::mat4, glm::vec4 = glm::vec4(1.0f), glm::vec3 = {}) const;
     void rect_render(resource::Shader&, glm::mat4&, glm::vec4 = glm::vec4(0, 0, 1, 1)) const;
     void render(resource::Shader&, glm::mat4&, glm::vec4 = glm::vec4(1.0f), glm::vec3 = {}) const;
-    void bind() const;
+    void bind();
+    void size_set(glm::ivec2 size);
+    void clear(glm::vec4 color = CLEAR_COLOR);
     void unbind() const;
-    void clear(glm::vec4 color = glm::vec4(0, 0, 0, 1)) const;
     bool is_valid() const;
+    glm::vec2 screen_position_convert(glm::vec2 position) const;
   };
 }

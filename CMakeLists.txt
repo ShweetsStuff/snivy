@@ -8,9 +8,9 @@ set(BUILD_SHARED_LIBS OFF)
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     set(CMAKE_C_FLAGS_DEBUG "-O0 -g" CACHE STRING "" FORCE)
-    set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g" CACHE STRING "" FORCE)
+    set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wpedantic -O0 -g" CACHE STRING "" FORCE)
     set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "" FORCE)
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG" CACHE STRING "" FORCE)
+    set(CMAKE_CXX_FLAGS_RELEASE "-Wall -Wpedantic -O3 -DNDEBUG" CACHE STRING "" FORCE)
 endif()
 
 set(SDL_STATIC ON CACHE BOOL "" FORCE)
@@ -56,12 +56,25 @@ set(SDLMIXER_TEST OFF CACHE BOOL "" FORCE)
 set(SDLMIXER_INSTALL OFF CACHE BOOL "" FORCE)
 add_subdirectory(external/SDL_mixer EXCLUDE_FROM_ALL)
 
-
-
+set(PHYSFS_BUILD_SHARED OFF CACHE BOOL "" FORCE)
+set(PHYSFS_BUILD_STATIC ON  CACHE BOOL "" FORCE)
+set(PHYSFS_BUILD_TEST OFF CACHE BOOL "" FORCE)
+set(PHYSFS_BUILD_DOCS OFF CACHE BOOL "" FORCE)
+set(PHYSFS_BUILD_WX_TEST OFF CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_ZIP ON  CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_7Z  OFF CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_GRP OFF CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_HOG OFF CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_PAK OFF CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_WAD OFF CACHE BOOL "" FORCE)
+set(PHYSFS_ARCHIVE_DIR ON CACHE BOOL "" FORCE)
+set(PHYSFS_DISABLE_INSTALL ON CACHE BOOL "" FORCE)
+add_subdirectory(external/physfs)
 
 set(IMGUI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/imgui)
 set(TINYXML2_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/tinyxml2)
 set(GLM_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/glm)
+set(PHYSFS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/physfs)
 
 set(IMGUI_SOURCES
         ${IMGUI_DIR}/imgui.cpp
@@ -75,12 +88,17 @@ set(IMGUI_SOURCES
 set (TINYXML2_SOURCES ${TINYXML2_DIR}/tinyxml2.cpp)
 
 file(GLOB PROJECT_SRC CONFIGURE_DEPENDS
-        include/*.cpp
-        src/*.cpp
-        src/resource/*.cpp
-        src/window/*.cpp
-        src/util/*.cpp
-        src/util/*.h
+	        include/*.cpp
+	        src/*.cpp
+	        src/resource/*.cpp
+	        src/resource/xml/*.cpp
+	        src/state/*.cpp
+	        src/state/main/*.cpp
+	        src/state/select/*.cpp
+	        src/entity/*.cpp
+	        src/window/*.cpp
+	        src/util/*.cpp
+	        src/util/imgui/*.cpp
 )
 
 add_executable(${PROJECT_NAME}
@@ -103,7 +121,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         include
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3-static SDL3_mixer::SDL3_mixer-static)
+target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3-static SDL3_mixer::SDL3_mixer-static physfs-static)
 
 set(PROJECT_RESOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 set(PROJECT_RESOURCES_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/resources")
@@ -111,6 +129,7 @@ if(EXISTS "${PROJECT_RESOURCES_DIR}")
     file(GLOB_RECURSE PROJECT_RESOURCE_FILES CONFIGURE_DEPENDS
             "${PROJECT_RESOURCES_DIR}/*")
     add_custom_target(copy_resources ALL
+            COMMAND ${CMAKE_COMMAND} -E remove_directory "${PROJECT_RESOURCES_BINARY_DIR}"
             COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_RESOURCES_DIR}" "${PROJECT_RESOURCES_BINARY_DIR}"
             DEPENDS ${PROJECT_RESOURCE_FILES}
             COMMENT "Copying resources directory")
@@ -128,6 +147,9 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
             "-sUSE_OGG=1"
             "-sUSE_VORBIS=1"
             "-sALLOW_MEMORY_GROWTH=1"
+            "-sFORCE_FILESYSTEM=1"
+            "-sASYNCIFY"
+            "-lidbfs.js"
     )
     if(HAS_PROJECT_RESOURCES)
         target_link_options(${PROJECT_NAME} PRIVATE
@@ -137,7 +159,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     endif()
     set_target_properties(${PROJECT_NAME} PROPERTIES
             OUTPUT_NAME "index"
-            SUFFIX ".js")
+            SUFFIX ".html")
 else()
     find_package(OpenGL REQUIRED COMPONENTS OpenGL)
     target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL)

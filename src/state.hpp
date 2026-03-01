@@ -2,53 +2,47 @@
 
 #include <SDL3/SDL.h>
 
-#include "character.h"
-#include "cursor.h"
-#include "item.h"
+#include "canvas.hpp"
+#include "resources.hpp"
 
-#include "canvas.h"
-#include "resources.h"
+#include "state/main.hpp"
+#include "state/select.hpp"
 
-#include "window/info.h"
-#include "window/main_menu.h"
-#include "window/text.h"
+#include "entity/cursor.hpp"
 
 namespace game
 {
-
   class State
   {
+  public:
     SDL_Window* window{};
     SDL_GLContext context{};
     long previousUpdate{};
     long previousTick{};
 
+    enum Type
+    {
+      MAIN,
+      SELECT
+    };
+
+    Type type{SELECT};
+
     Resources resources;
 
-    Character character{&resources.anm2s[anm2::CHARACTER], glm::vec2(300, 500)};
-    Cursor cursor{&resources.anm2s[anm2::CURSOR]};
-
-    std::vector<Item> items{};
-
-    window::Info infoWindow;
-    window::MainMenu mainMenuWindow;
-    window::Text textWindow;
-
-    bool isMainMenu{false};
-    bool isInfo{false};
-    bool isText{false};
-
-    GameData gameData;
+    state::Main main;
+    state::Select select;
 
     void tick();
+    void tick_60();
     void update();
     void render();
 
-  public:
     bool isRunning{true};
+
     Canvas canvas{};
 
-    State(SDL_Window*, SDL_GLContext, glm::vec2);
+    State(SDL_Window*, SDL_GLContext, resource::xml::Settings);
     void loop();
   };
 };
