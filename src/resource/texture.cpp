@@ -2,6 +2,7 @@
 
 #include <SDL3/SDL_surface.h>
 #include <string>
+#include <format>
 #include <unordered_map>
 
 #include "../log.hpp"

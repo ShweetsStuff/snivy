@@ -2,6 +2,8 @@
 
 #include "../log.hpp"
 
+#include <format>
+
 namespace game::resource
 {
   Shader::Shader(const char* vertex, const char* fragment)

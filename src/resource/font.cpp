@@ -2,6 +2,8 @@
 
 #include "../log.hpp"
 
+#include <format>
+
 using namespace game::util;
 
 static ImFont* default_font_fallback_get()

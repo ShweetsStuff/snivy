@@ -3,7 +3,9 @@
 #include <SDL3/SDL_properties.h>
 
 #include "../log.hpp"
+
 #include <string>
+#include <format>
 #include <unordered_map>
 
 using namespace game::util;
