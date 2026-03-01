@@ -140,6 +140,29 @@ if (WIN32 AND TARGET SDL3::SDL3main)
     target_link_libraries(${PROJECT_NAME} PRIVATE SDL3::SDL3main)
 endif()
 
+if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    if(MSVC)
+        target_compile_options(${PROJECT_NAME} PRIVATE
+                "$<$<CONFIG:Release>:/O2>"
+                "$<$<CONFIG:Release>:/DNDEBUG>"
+        )
+        target_link_options(${PROJECT_NAME} PRIVATE
+                "$<$<CONFIG:Release>:/DEBUG:NONE>"
+                "$<$<CONFIG:Release>:/INCREMENTAL:NO>"
+                "$<$<CONFIG:Release>:/OPT:REF>"
+                "$<$<CONFIG:Release>:/OPT:ICF>"
+        )
+    else()
+        target_compile_options(${PROJECT_NAME} PRIVATE
+                "$<$<CONFIG:Release>:-O3>"
+                "$<$<CONFIG:Release>:-DNDEBUG>"
+        )
+        target_link_options(${PROJECT_NAME} PRIVATE
+                "$<$<CONFIG:Release>:-s>"
+        )
+    endif()
+endif()
+
 set(PROJECT_RESOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/resources")
 set(PROJECT_RESOURCES_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/resources")
 if(EXISTS "${PROJECT_RESOURCES_DIR}")
