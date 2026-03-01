@@ -9,13 +9,13 @@ This Is A Video Game Where You Feed The Snivy.
 ## Build
 
 After cloning and enter the repository's directory, make sure to initialize the submodules:
-
 ```git submodule update --init --recursive```
 
 ### Windows
 Visual Studio is recommended for build.
 
 ### Linux
+
 ```
 mkdir build
 cd build
@@ -24,3 +24,6 @@ make
 ```
 
 If using VSCode, several tasks are available to quickly run and build.
+
+### Emscripten
+Run the VSCode "web" task. Make sure you have the Emscripten SDK accessible at the EMSDK path variable.

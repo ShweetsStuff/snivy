@@ -203,15 +203,17 @@ set(PROJECT_RESOURCES_BINARY_DIR "$<TARGET_FILE_DIR:${PROJECT_NAME}>/resources")
 if(EXISTS "${PROJECT_RESOURCES_DIR}")
     file(GLOB_RECURSE PROJECT_RESOURCE_FILES CONFIGURE_DEPENDS
             "${PROJECT_RESOURCES_DIR}/*")
-    add_custom_target(copy_resources ALL
-            COMMAND ${CMAKE_COMMAND}
-                    -DSRC_DIR="${PROJECT_RESOURCES_DIR}"
-                    -DDST_DIR="${PROJECT_RESOURCES_BINARY_DIR}"
-                    -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/copy_resources.cmake"
-            WORKING_DIRECTORY "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
-            DEPENDS ${PROJECT_RESOURCE_FILES}
-            COMMENT "Copying resources directory")
-    add_dependencies(${PROJECT_NAME} copy_resources)
+    if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+        add_custom_target(copy_resources ALL
+                COMMAND ${CMAKE_COMMAND}
+                        -DSRC_DIR="${PROJECT_RESOURCES_DIR}"
+                        -DDST_DIR="${PROJECT_RESOURCES_BINARY_DIR}"
+                        -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/copy_resources.cmake"
+                WORKING_DIRECTORY "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+                DEPENDS ${PROJECT_RESOURCE_FILES}
+                COMMENT "Copying resources directory")
+        add_dependencies(${PROJECT_NAME} copy_resources)
+    endif()
     set(HAS_PROJECT_RESOURCES TRUE)
 else()
     set(HAS_PROJECT_RESOURCES FALSE)
@@ -240,12 +242,18 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     if(HAS_PROJECT_RESOURCES)
         target_link_options(${PROJECT_NAME} PRIVATE
                 "--preload-file"
-                "${PROJECT_RESOURCES_BINARY_DIR}@resources"
+                "${PROJECT_RESOURCES_DIR}@resources"
         )
     endif()
     set_target_properties(${PROJECT_NAME} PROPERTIES
             OUTPUT_NAME "index"
             SUFFIX ".html")
+
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND}
+                    -DBIN_DIR="$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+                    -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/create_index_zip.cmake"
+            COMMENT "Creating snivy-web.zip from Emscripten output")
 else()
     find_package(OpenGL REQUIRED COMPONENTS OpenGL)
     target_link_libraries(${PROJECT_NAME} PRIVATE OpenGL::GL)
