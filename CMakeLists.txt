@@ -115,21 +115,12 @@ file(GLOB PROJECT_SRC CONFIGURE_DEPENDS
 	        src/util/imgui/*.cpp
 )
 
-if(WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
-    add_executable(${PROJECT_NAME} WIN32
-            ${PROJECT_SRC}
-            ${IMGUI_SOURCES}
-            ${TINYXML2_SOURCES}
-            ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
-    )
-else()
-    add_executable(${PROJECT_NAME}
-            ${PROJECT_SRC}
-            ${IMGUI_SOURCES}
-            ${TINYXML2_SOURCES}
-            ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
-    )
-endif()
+add_executable(${PROJECT_NAME}
+        ${PROJECT_SRC}
+        ${IMGUI_SOURCES}
+        ${TINYXML2_SOURCES}
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/external/SDL/include
