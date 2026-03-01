@@ -90,7 +90,7 @@ namespace game::state
     text.isEnabled = false;
 
     isPostgame = saveData.isPostgame;
-
+    if (character.stage_get() >= character.stage_max_get()) isPostgame = true;
     if (isPostgame) menu.isCheats = true;
 
     if (game == NEW_GAME) isWindows = false;
@@ -170,8 +170,7 @@ namespace game::state
       }
     }
 
-    if (character.isJustStageFinal && !isEnd && !isPostgame)
-      isEnd = true;
+    if (character.isJustStageFinal && !isEnd && !isPostgame) isEnd = true;
 
     if (isEnd)
     {
@@ -255,7 +254,6 @@ namespace game::state
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     cursor.render(textureShader, rectShader, canvas);
     canvas.unbind();
-
   }
 
   void Main::save(Resources& resources)
