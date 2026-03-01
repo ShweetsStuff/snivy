@@ -114,11 +114,11 @@ namespace game::state::select
       if (ImGui::BeginPopupModal("New Game Warning", &isNewGameWarning,
                                  ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize))
       {
-        auto widgetSize = row_widget_size_get(save.is_valid() ? 2 : 1);
+        auto popupWidgetSize = row_widget_size_get(save.is_valid() ? 2 : 1);
         ImGui::TextWrapped("This will delete saved progress! Are you sure?");
-        if (WIDGET_FX(ImGui::Button("Yes", widgetSize))) isNewGame = true;
+        if (WIDGET_FX(ImGui::Button("Yes", popupWidgetSize))) isNewGame = true;
         ImGui::SameLine();
-        if (WIDGET_FX(ImGui::Button("No", widgetSize))) isNewGameWarning = false;
+        if (WIDGET_FX(ImGui::Button("No", popupWidgetSize))) isNewGameWarning = false;
         ImGui::EndPopup();
       }
     }

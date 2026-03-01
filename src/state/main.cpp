@@ -24,14 +24,14 @@ namespace game::state
                                        : World::CENTER;
   }
 
-  void Main::set(Resources& resources, int characterIndex, enum Game game)
+  void Main::set(Resources& resources, int selectedCharacterIndex, enum Game game)
   {
-    auto& data = resources.character_get(characterIndex);
+    auto& data = resources.character_get(selectedCharacterIndex);
     auto& saveData = data.save;
     auto& itemSchema = data.itemSchema;
     auto& dialogue = data.dialogue;
     auto& menuSchema = data.menuSchema;
-    this->characterIndex = characterIndex;
+    this->characterIndex = selectedCharacterIndex;
 
     character =
         entity::Character(data, vec2(World::BOUNDS.x + World::BOUNDS.z * 0.5f, World::BOUNDS.w - World::BOUNDS.y));
@@ -114,7 +114,7 @@ namespace game::state
     save(resources);
   }
 
-  void Main::tick(Resources& resources)
+  void Main::tick(Resources&)
   {
     character.tick();
     cursor.tick();

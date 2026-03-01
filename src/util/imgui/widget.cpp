@@ -43,7 +43,7 @@ namespace game::util::imgui::widget
       auto min = ImGui::GetItemRectMin();
       auto max = ImGui::GetItemRectMax();
       auto time = ImGui::GetTime();
-      auto period = sinf(time * FREQUENCY);
+      auto period = sinf((float)(time * FREQUENCY));
       auto thickness = THICKNESS_MIN + (THICKNESS_MAX * period);
       auto colorBorder = ImGui::GetStyleColorVec4(ImGuiCol_CheckMark);
       colorBorder.w = ALPHA_MIN + (ALPHA_MAX * period);

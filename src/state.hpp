@@ -17,8 +17,8 @@ namespace game
   public:
     SDL_Window* window{};
     SDL_GLContext context{};
-    long previousUpdate{};
-    long previousTick{};
+    Uint64 previousUpdate{};
+    Uint64 previousTick{};
 
     enum Type
     {

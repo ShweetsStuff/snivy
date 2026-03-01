@@ -11,7 +11,7 @@ using namespace game::util;
 
 namespace game::state::main
 {
-  void Cheats::update(Resources& resources, entity::Character& character, Inventory& inventory, Text& text)
+  void Cheats::update(Resources&, entity::Character& character, Inventory& inventory, Text& text)
   {
     static constexpr auto FEED_INCREMENT = 100.0f;
 
@@ -40,7 +40,7 @@ namespace game::state::main
       }
 
       auto stage = character.stage + 1;
-      if (WIDGET_FX(ImGui::SliderInt("Stage", &stage, 1, character.data.stages.size() + 1)))
+      if (WIDGET_FX(ImGui::SliderInt("Stage", &stage, 1, (int)character.data.stages.size() + 1)))
       {
         character.stage = glm::clamp(0, stage - 1, (int)character.data.stages.size());
         character.weight =

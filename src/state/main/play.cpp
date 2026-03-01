@@ -129,7 +129,7 @@ namespace game::state::main
       {
         if (grade.isFailure) continue;
 
-        auto scale = powf(0.5f, rangeCount);
+        auto scale = powf(0.5f, (float)rangeCount);
         auto halfHeight = baseHeight * scale * 0.5f;
 
         rangeCount++;
@@ -165,19 +165,19 @@ namespace game::state::main
 
     auto lineMin = ImVec2(barMin.x - LINE_WIDTH_BONUS, barMin.y + (barHeight * tryValue));
     auto lineMax = ImVec2(barMin.x + barWidth + LINE_WIDTH_BONUS, lineMin.y + LINE_HEIGHT);
-    auto color = LINE_COLOR;
-    color.w = isActive ? 1.0f : endTimerProgress;
-    drawList->AddRectFilled(lineMin, lineMax, ImGui::GetColorU32(color));
+    auto lineColor = LINE_COLOR;
+    lineColor.w = isActive ? 1.0f : endTimerProgress;
+    drawList->AddRectFilled(lineMin, lineMax, ImGui::GetColorU32(lineColor));
 
     if (!isActive && !isGameOver)
     {
       range_draw(queuedChallenge.range, 1.0f - endTimerProgress);
 
-      auto lineMin = ImVec2(barMin.x - LINE_WIDTH_BONUS, barMin.y + (barHeight * queuedChallenge.tryValue));
-      auto lineMax = ImVec2(barMin.x + barWidth + LINE_WIDTH_BONUS, lineMin.y + LINE_HEIGHT);
-      auto color = LINE_COLOR;
-      color.w = 1.0f - endTimerProgress;
-      drawList->AddRectFilled(lineMin, lineMax, ImGui::GetColorU32(color));
+      auto queuedLineMin = ImVec2(barMin.x - LINE_WIDTH_BONUS, barMin.y + (barHeight * queuedChallenge.tryValue));
+      auto queuedLineMax = ImVec2(barMin.x + barWidth + LINE_WIDTH_BONUS, queuedLineMin.y + LINE_HEIGHT);
+      auto queuedLineColor = LINE_COLOR;
+      queuedLineColor.w = 1.0f - endTimerProgress;
+      drawList->AddRectFilled(queuedLineMin, queuedLineMax, ImGui::GetColorU32(queuedLineColor));
     }
 
     if (isActive)
@@ -375,10 +375,10 @@ namespace game::state::main
 
       toastMessage.position.y -= TOAST_MESSAGE_SPEED;
 
-      auto color = ImGui::GetStyleColorVec4(ImGuiCol_Text);
-      color.w = ((float)toastMessage.time / toastMessage.timeMax);
+      auto textColor = ImGui::GetStyleColorVec4(ImGuiCol_Text);
+      textColor.w = ((float)toastMessage.time / toastMessage.timeMax);
 
-      drawList->AddText(toastMessage.position, ImGui::GetColorU32(color), toastMessage.message.c_str());
+      drawList->AddText(toastMessage.position, ImGui::GetColorU32(textColor), toastMessage.message.c_str());
 
       toastMessage.time--;
 

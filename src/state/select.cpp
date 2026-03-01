@@ -15,7 +15,7 @@ namespace game::state
     characters.update(resources, characterIndex);
   }
 
-  void Select::render(Resources& resources, Canvas& canvas)
+  void Select::render(Resources&, Canvas& canvas)
   {
     canvas.bind();
     ImGui::Render();

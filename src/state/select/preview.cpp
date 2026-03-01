@@ -52,12 +52,12 @@ namespace game::state::select
                   ? 0.0f
                   : std::min(availableSize.x / textureSize.x, availableSize.y / textureSize.y);
 
-          auto size = ImVec2(textureSize.x * scale, textureSize.y * scale);
+          auto renderSize = ImVec2(textureSize.x * scale, textureSize.y * scale);
 
-          ImGui::SetCursorPos(ImVec2(ImGui::GetCursorPosX() + (availableSize.x * 0.5f) - (size.y * 0.5f),
-                                     ImGui::GetCursorPosY() + (availableSize.y * 0.5f) - (size.y * 0.5f)));
+          ImGui::SetCursorPos(ImVec2(ImGui::GetCursorPosX() + (availableSize.x * 0.5f) - (renderSize.y * 0.5f),
+                                     ImGui::GetCursorPosY() + (availableSize.y * 0.5f) - (renderSize.y * 0.5f)));
 
-          ImGui::Image(character.render.id, size);
+          ImGui::Image(character.render.id, renderSize);
 
           ImGui::EndTabItem();
         }

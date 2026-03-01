@@ -28,18 +28,18 @@ namespace game::state::main
     return it;
   }
 
-  void Text::set(resource::xml::Dialogue::Entry* entry, entity::Character& character)
+  void Text::set(resource::xml::Dialogue::Entry* dialogueEntry, entity::Character& character)
   {
-    if (!entry) return;
-    this->entry = entry;
+    if (!dialogueEntry) return;
+    this->entry = dialogueEntry;
 
     isFinished = false;
     index = 0;
     time = 0.0f;
     isEnabled = true;
     character.isTalking = true;
-    if (!entry->animation.empty()) character.play_convert(entry->animation);
-    if (entry->text.empty()) isEnabled = false;
+    if (!dialogueEntry->animation.empty()) character.play_convert(dialogueEntry->animation);
+    if (dialogueEntry->text.empty()) isEnabled = false;
   }
 
   void Text::tick(entity::Character& character)
@@ -98,7 +98,7 @@ namespace game::state::main
       auto font = ImGui::GetFont();
       auto fontSize = resource::Font::NORMAL;
 
-      ImGui::PushFont(font, fontSize);
+      ImGui::PushFont(font, (float)fontSize);
 
       auto text = [&]()
       {
@@ -129,7 +129,7 @@ namespace game::state::main
           if (!entry->choices.empty())
           {
             ImGui::SetCursorPos(ImVec2(ImGui::GetStyle().WindowPadding.x, available.y));
-            auto buttonSize = imgui::row_widget_size_get(entry->choices.size());
+            auto buttonSize = imgui::row_widget_size_get((int)entry->choices.size());
 
             for (auto& branch : entry->choices)
             {

@@ -7,7 +7,7 @@ using namespace game::util::imgui;
 
 namespace game::state::main
 {
-  void Chat::update(Resources& resources, Text& text, entity::Character& character)
+  void Chat::update(Resources&, Text& text, entity::Character& character)
   {
     auto& dialogue = character.data.dialogue;
     auto size = ImGui::GetContentRegionAvail();

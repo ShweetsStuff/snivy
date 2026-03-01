@@ -67,9 +67,10 @@ namespace game::util::physfs
 
   Archive::Archive(const std::filesystem::path& path, const std::string& mount)
   {
-    if (!PHYSFS_mount(path.c_str(), mount.c_str(), 0))
+    auto pathString = path.string();
+    if (!PHYSFS_mount(pathString.c_str(), mount.c_str(), 0))
     {
-      logger.error(std::format("Failed to mount archive: {} ({})", path.c_str(), error_get()));
+      logger.error(std::format("Failed to mount archive: {} ({})", pathString, error_get()));
       return;
     }
 

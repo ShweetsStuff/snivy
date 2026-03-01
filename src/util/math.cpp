@@ -47,5 +47,5 @@ namespace game::util::math
   float random_max(float max) { return random_in_range(0, max); }
   float random_roll(float value) { return random() * value; }
   bool random_bool() { return random() < 0.5f; };
-  void random_seed_set() { srand(std::time(nullptr)); }
+  void random_seed_set() { srand((unsigned int)std::time(nullptr)); }
 }
