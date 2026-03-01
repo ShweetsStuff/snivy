@@ -31,14 +31,15 @@ namespace game::entity
   Actor& Actor::operator=(const Actor&) = default;
   Actor& Actor::operator=(Actor&&) noexcept = default;
 
-  Actor::Actor(Anm2 _anm2, vec2 _position, Mode mode, float time, int animationIndex) : Anm2(_anm2), position(_position)
+  Actor::Actor(Anm2 _anm2, vec2 _position, Mode playMode, float startAtTime, int startAnimationIndex)
+      : Anm2(_anm2), position(_position)
   {
-    this->mode = mode;
-    this->startTime = time;
-    if (animationIndex != -1)
-      play(animationIndex, mode, time);
+    this->mode = playMode;
+    this->startTime = startAtTime;
+    if (startAnimationIndex != -1)
+      play(startAnimationIndex, playMode, startAtTime);
     else
-      play_default_animation(mode, time);
+      play_default_animation(playMode, startAtTime);
   }
 
   Anm2::Animation* Actor::animation_get(int index)
@@ -68,10 +69,10 @@ namespace game::entity
     return -1;
   }
 
-  Anm2::Item* Actor::item_get(Anm2::Type type, int id, int animationIndex)
+  Anm2::Item* Actor::item_get(Anm2::Type type, int id, int checkAnimationIndex)
   {
-    if (animationIndex == -1) animationIndex = this->animationIndex;
-    if (auto animation = animation_get(animationIndex))
+    if (checkAnimationIndex == -1) checkAnimationIndex = this->animationIndex;
+    if (auto animation = animation_get(checkAnimationIndex))
     {
       switch (type)
       {
@@ -103,14 +104,14 @@ namespace game::entity
     return duration;
   }
 
-  Anm2::Frame Actor::frame_generate(Anm2::Item& item, float time, Anm2::Type type, int id)
+  Anm2::Frame Actor::frame_generate(Anm2::Item& item, float frameTime, Anm2::Type type, int id)
   {
     Anm2::Frame frame{};
     frame.isVisible = false;
 
     if (item.frames.empty()) return frame;
 
-    time = time < 0.0f ? 0.0f : time;
+    frameTime = frameTime < 0.0f ? 0.0f : frameTime;
 
     Anm2::Frame* frameNext = nullptr;
     Anm2::Frame frameNextCopy{};
@@ -125,7 +126,7 @@ namespace game::entity
 
       durationNext += frame.duration;
 
-      if (time >= durationCurrent && time < durationNext)
+      if (frameTime >= durationCurrent && frameTime < durationNext)
       {
         if (i + 1 < (int)item.frames.size())
         {
@@ -177,7 +178,7 @@ namespace game::entity
 
     if (frame.isInterpolated && frameNext && frame.duration > 1)
     {
-      auto interpolation = (time - durationCurrent) / (durationNext - durationCurrent);
+      auto interpolation = (frameTime - durationCurrent) / (durationNext - durationCurrent);
 
       frame.rotation = glm::mix(frame.rotation, frameNextCopy.rotation, interpolation);
       frame.position = glm::mix(frame.position, frameNextCopy.position, interpolation);
@@ -189,34 +190,34 @@ namespace game::entity
     return frame;
   }
 
-  void Actor::play(int index, Mode mode, float time, float speedMultiplier)
+  void Actor::play(int index, Mode playMode, float startAtTime, float speedMultiplierValue)
   {
     if (!vector::in_bounds(animations, index)) return;
-    if (mode != PLAY_FORCE && index == animationIndex) return;
+    if (playMode != PLAY_FORCE && index == animationIndex) return;
 
     this->playedEventID = -1;
     this->playedTriggers.clear();
 
-    this->speedMultiplier = speedMultiplier;
+    this->speedMultiplier = speedMultiplierValue;
     this->animationIndex = index;
-    this->time = time;
-    if (mode == PLAY) state = PLAYING;
+    this->time = startAtTime;
+    if (playMode == PLAY) state = PLAYING;
   }
 
   void Actor::queue_play(QueuedPlay newQueuedPlay) { queuedPlay = newQueuedPlay; }
   void Actor::queue_default_animation() { queue_play({defaultAnimation}); }
 
-  void Actor::play(const std::string& name, Mode mode, float time, float speedMultiplier)
+  void Actor::play(const std::string& name, Mode playMode, float startAtTime, float speedMultiplierValue)
   {
     if (animationMap.contains(name))
-      play(animationMap.at(name), mode, time, speedMultiplier);
+      play(animationMap.at(name), playMode, startAtTime, speedMultiplierValue);
     else
       logger.error(std::string("Animation \"" + name + "\" does not exist! Unable to play!"));
   }
 
-  void Actor::play_default_animation(Mode mode, float time, float speedMultiplier)
+  void Actor::play_default_animation(Mode playMode, float startAtTime, float speedMultiplierValue)
   {
-    play(defaultAnimationID, mode, time, speedMultiplier);
+    play(defaultAnimationID, playMode, startAtTime, speedMultiplierValue);
   }
 
   void Actor::tick()
@@ -256,7 +257,7 @@ namespace game::entity
     {
       if (!playedTriggers.contains(trigger.atFrame) && time >= trigger.atFrame)
       {
-        auto id = trigger.soundIDs[(int)math::random_max(trigger.soundIDs.size())];
+        auto id = trigger.soundIDs[(int)math::random_max((float)trigger.soundIDs.size())];
         if (auto sound = map::find(sounds, id)) sound->audio.play();
         playedTriggers.insert((int)trigger.atFrame);
         playedEventID = trigger.eventID;
@@ -276,7 +277,7 @@ namespace game::entity
       playedTriggers.clear();
     }
 
-    for (int i = 0; i < (int)overrides.size(); i++)
+    for (int i = 0; i < (int)overrides.size();)
     {
       auto& override_ = overrides[i];
 
@@ -285,8 +286,13 @@ namespace game::entity
       if (override_.time.has_value())
       {
         *override_.time -= 1.0f;
-        if (*override_.time <= 0.0f) overrides.erase(overrides.begin() + i++);
+        if (*override_.time <= 0.0f)
+        {
+          overrides.erase(overrides.begin() + i);
+          continue;
+        }
       }
+      i++;
     }
   }
 

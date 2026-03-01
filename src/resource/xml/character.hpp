@@ -88,7 +88,7 @@ namespace game::resource::xml
       Texture texture{};
       Audio sound{};
       int id{-1};
-      float chanceOnNewGame{0.001};
+      float chanceOnNewGame{0.001f};
     };
 
     Anm2 anm2{};

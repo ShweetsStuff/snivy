@@ -253,21 +253,21 @@ namespace game
     glBindRenderbuffer(GL_RENDERBUFFER, rbo);
   }
 
-  void Canvas::size_set(ivec2 size)
+  void Canvas::size_set(ivec2 newSize)
   {
-    if ((flags & DEFAULT) == 0 && (size.x != this->size.x || size.y != this->size.y))
+    if ((flags & DEFAULT) == 0 && (newSize.x != this->size.x || newSize.y != this->size.y))
     {
       glBindTexture(GL_TEXTURE_2D, texture);
-      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.x, size.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, newSize.x, newSize.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
       glBindTexture(GL_TEXTURE_2D, 0);
 
       glBindRenderbuffer(GL_RENDERBUFFER, rbo);
-      glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, size.x, size.y);
+      glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, newSize.x, newSize.y);
       glBindRenderbuffer(GL_RENDERBUFFER, 0);
     }
 
-    this->size = size;
-    glViewport(0, 0, size.x, size.y);
+    this->size = newSize;
+    glViewport(0, 0, newSize.x, newSize.y);
   }
 
   void Canvas::clear(vec4 color)

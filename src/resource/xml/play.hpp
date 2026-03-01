@@ -34,14 +34,14 @@ namespace game::resource::xml
     Sounds sounds{};
     std::vector<Grade> grades{};
 
-    float rewardScoreBonus{0.01};
-    float rewardGradeBonus{0.05};
-    float speedMin{0.005};
-    float speedMax{0.075};
+    float rewardScoreBonus{0.01f};
+    float rewardGradeBonus{0.05f};
+    float speedMin{0.005f};
+    float speedMax{0.075f};
     float speedScoreBonus{0.000025f};
-    float rangeBase{0.75};
-    float rangeMin{0.10};
-    float rangeScoreBonus{0.0005};
+    float rangeBase{0.75f};
+    float rangeMin{0.10f};
+    float rangeScoreBonus{0.0005f};
     int endTimerMax{20};
     int endTimerFailureMax{60};
     int rewardScore{999};

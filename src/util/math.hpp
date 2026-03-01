@@ -1,5 +1,7 @@
 #pragma once
 
+#include <array>
+
 #include "glm/ext/matrix_float4x4.hpp"
 #include "glm/ext/vector_float2.hpp"
 

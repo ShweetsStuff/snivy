@@ -16,7 +16,7 @@ namespace game::util::imgui
   ImVec2 size_without_footer_get(int = 1);
 
   inline ImVec2 to_imvec2(vec2 value) { return ImVec2(value.x, value.y); }
-  inline ImVec2 to_imvec2(ivec2 value) { return ImVec2(value.x, value.y); }
+  inline ImVec2 to_imvec2(ivec2 value) { return ImVec2((float)value.x, (float)value.y); }
   inline vec2 to_vec2(ImVec2 value) { return vec2(value.x, value.y); }
   inline ivec2 to_ivec2(ImVec2 value) { return ivec2(value.x, value.y); }
 

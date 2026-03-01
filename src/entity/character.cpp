@@ -77,7 +77,7 @@ namespace game::entity
 
   float Character::weight_get(measurement::System system)
   {
-    return system == measurement::IMPERIAL ? weight * measurement::KG_TO_LB : weight;
+    return system == measurement::IMPERIAL ? weight * (float)measurement::KG_TO_LB : weight;
   }
 
   int Character::stage_from_weight_get(float checkWeight) const
@@ -93,25 +93,25 @@ namespace game::entity
 
   int Character::stage_get() const { return stage_from_weight_get(weight); }
 
-  int Character::stage_max_get() const { return data.stages.size(); }
+  int Character::stage_max_get() const { return (int)data.stages.size(); }
 
-  float Character::stage_threshold_get(int stage, measurement::System system) const
+  float Character::stage_threshold_get(int stageIndex, measurement::System system) const
   {
-    if (stage == -1) stage = this->stage;
+    if (stageIndex == -1) stageIndex = this->stage;
 
     float threshold = data.weight;
 
     if (!data.stages.empty())
     {
-      if (stage <= 0)
+      if (stageIndex <= 0)
         threshold = data.weight;
-      else if (stage >= stage_max_get())
+      else if (stageIndex >= stage_max_get())
         threshold = data.stages.back().threshold;
       else
-        threshold = data.stages[stage - 1].threshold;
+        threshold = data.stages[stageIndex - 1].threshold;
     }
 
-    return system == measurement::IMPERIAL ? threshold * measurement::KG_TO_LB : threshold;
+    return system == measurement::IMPERIAL ? threshold * (float)measurement::KG_TO_LB : threshold;
   }
 
   float Character::stage_threshold_next_get(measurement::System system) const
@@ -139,9 +139,9 @@ namespace game::entity
   float Character::capacity_percent_get() const { return calories / max_capacity(); }
 
   std::string Character::animation_name_convert(const std::string& name) { return std::format("{}{}", name, stage); }
-  void Character::play_convert(const std::string& animation, Mode mode, float time, float speedMultiplier)
+  void Character::play_convert(const std::string& animation, Mode playMode, float startAtTime, float speedMultiplierValue)
   {
-    play(animation_name_convert(animation), mode, time, speedMultiplier);
+    play(animation_name_convert(animation), playMode, startAtTime, speedMultiplierValue);
   }
 
   void Character::expand_areas_apply()
