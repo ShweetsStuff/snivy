@@ -127,6 +127,14 @@ add_executable(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
 )
 
+if(WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    enable_language(RC)
+    target_sources(${PROJECT_NAME} PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/snivy.rc"
+            "${CMAKE_CURRENT_SOURCE_DIR}/Icon.ico"
+    )
+endif()
+
 target_compile_definitions(${PROJECT_NAME} PRIVATE
         "$<$<CONFIG:Debug>:DEBUG=1>"
         "$<$<NOT:$<CONFIG:Debug>>:DEBUG=0>"
