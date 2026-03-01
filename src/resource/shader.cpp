@@ -20,7 +20,7 @@ namespace game::resource
         glGetShaderiv(shaderHandle, GL_INFO_LOG_LENGTH, &logLength);
         std::string log(logLength, '\0');
         if (logLength > 0) glGetShaderInfoLog(shaderHandle, logLength, nullptr, log.data());
-        logger.error(std::format("Failed to compile shader: {}", log));
+        logger.error(std::format("Failed to compile {} shader: {}", stage, log));
         return false;
       }
       return true;

@@ -136,14 +136,15 @@ namespace game::resource
 
   Texture::Texture(const std::filesystem::path& path)
   {
-    auto key = std::string("fs:") + path.string();
+    auto pathString = path.string();
+    auto key = std::string("fs:") + pathString;
     if (cache_get(key, idShared, id, size, channels))
     {
-      logger.info(std::format("Using cached texture: {}", path.string()));
+      logger.info(std::format("Using cached texture: {}", pathString));
       return;
     }
 
-    if (auto surface = SDL_LoadPNG(path.c_str()))
+    if (auto surface = SDL_LoadPNG(pathString.c_str()))
     {
       auto rgbaSurface = SDL_ConvertSurface(surface, SDL_PIXELFORMAT_RGBA32);
       SDL_DestroySurface(surface);
@@ -152,10 +153,10 @@ namespace game::resource
       init((const uint8_t*)surface->pixels);
       SDL_DestroySurface(surface);
       cache_set(key, idShared, this->size, channels);
-      logger.info(std::format("Initialized texture: {}", path.string()));
+      logger.info(std::format("Initialized texture: {}", pathString));
     }
     else
-      logger.error(std::format("Failed to initialize texture: {} ({})", path.string(), SDL_GetError()));
+      logger.error(std::format("Failed to initialize texture: {} ({})", pathString, SDL_GetError()));
   }
 
   Texture::Texture(const physfs::Path& path)

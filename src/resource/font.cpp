@@ -8,15 +8,17 @@ namespace game::resource
 {
   Font::Font(const std::filesystem::path& path, float size)
   {
+    auto pathString = path.string();
+
     ImFontConfig config;
     config.FontDataOwnedByAtlas = false;
 
-    internal = ImGui::GetIO().Fonts->AddFontFromFileTTF(path.c_str(), size, &config);
+    internal = ImGui::GetIO().Fonts->AddFontFromFileTTF(pathString.c_str(), size, &config);
 
     if (internal)
-      logger.info(std::format("Initialized font: {}", path.c_str()));
+      logger.info(std::format("Initialized font: {}", pathString));
     else
-      logger.error(std::format("Failed to initialize font: {}", path.c_str()));
+      logger.error(std::format("Failed to initialize font: {}", pathString));
   }
 
   Font::Font(const physfs::Path& path, float size)

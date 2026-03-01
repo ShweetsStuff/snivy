@@ -51,19 +51,20 @@ namespace game::resource
 
   Audio::Audio(const std::filesystem::path& path)
   {
-    auto key = std::string("fs:") + path.string();
+    auto pathString = path.string();
+    auto key = std::string("fs:") + pathString;
     internal = cache_get(key);
     if (internal)
     {
-      logger.info(std::format("Using cached audio: {}", path.string()));
+      logger.info(std::format("Using cached audio: {}", pathString));
       return;
     }
 
-    internal = audio_make(MIX_LoadAudio(mixer_get(), path.c_str(), true));
+    internal = audio_make(MIX_LoadAudio(mixer_get(), pathString.c_str(), true));
     cache_set(key, internal);
-    if (internal) logger.info(std::format("Initialized audio: {}", path.string()));
+    if (internal) logger.info(std::format("Initialized audio: {}", pathString));
 
-    if (!internal) logger.info(std::format("Failed to intialize audio: {} ({})", path.string(), SDL_GetError()));
+    if (!internal) logger.info(std::format("Failed to intialize audio: {} ({})", pathString, SDL_GetError()));
   }
 
   Audio::Audio(const physfs::Path& path)
