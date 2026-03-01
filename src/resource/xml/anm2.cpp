@@ -5,6 +5,7 @@
 
 #include "../../log.hpp"
 
+#include <format>
 #include <ranges>
 
 using namespace tinyxml2;

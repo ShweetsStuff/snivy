@@ -6,6 +6,8 @@
 #include "../../util/preferences.hpp"
 #include "util.hpp"
 
+#include <format>
+
 using namespace tinyxml2;
 using namespace game::util;
 

@@ -2,6 +2,8 @@
 
 #include "../../log.hpp"
 
+#include <format>
+
 using namespace tinyxml2;
 using namespace game::util;
 

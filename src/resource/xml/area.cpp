@@ -1,6 +1,7 @@
 #include "area.hpp"
 
 #include "../../log.hpp"
+#include <format>
 
 #include "util.hpp"
 
