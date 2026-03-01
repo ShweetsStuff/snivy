@@ -17,9 +17,9 @@ namespace game::resource::xml
   Anm2& Anm2::operator=(const Anm2&) = default;
   Anm2& Anm2::operator=(Anm2&&) = default;
 
-  void Anm2::init(XMLDocument& document, Flags flags, const physfs::Path& archive)
+  void Anm2::init(XMLDocument& document, Flags anm2Flags, const physfs::Path& archive)
   {
-    this->flags = flags;
+    this->flags = anm2Flags;
 
     auto element = document.RootElement();
     if (!element) return;
@@ -298,13 +298,14 @@ namespace game::resource::xml
     isValid = true;
   }
 
-  Anm2::Anm2(const std::filesystem::path& path, Flags flags)
+  Anm2::Anm2(const std::filesystem::path& path, Flags anm2Flags)
   {
     XMLDocument document;
+    auto pathString = path.string();
 
-    if (document.LoadFile(path.c_str()) != XML_SUCCESS)
+    if (document.LoadFile(pathString.c_str()) != XML_SUCCESS)
     {
-      logger.error(std::format("Failed to initialize anm2: {} ({})", path.string(), document.ErrorStr()));
+      logger.error(std::format("Failed to initialize anm2: {} ({})", pathString, document.ErrorStr()));
       isValid = false;
       return;
     }
@@ -313,12 +314,12 @@ namespace game::resource::xml
 
     this->path = path.string();
 
-    init(document, flags);
+    init(document, anm2Flags);
 
-    logger.info(std::format("Initialized anm2: {}", path.string()));
+    logger.info(std::format("Initialized anm2: {}", pathString));
   }
 
-  Anm2::Anm2(const physfs::Path& path, Flags flags)
+  Anm2::Anm2(const physfs::Path& path, Flags anm2Flags)
   {
     XMLDocument document;
 
@@ -329,7 +330,7 @@ namespace game::resource::xml
     }
 
     this->path = path;
-    init(document, flags, path.directory_get());
+    init(document, anm2Flags, path.directory_get());
 
     logger.info(std::format("Initialized anm2: {}", path.c_str()));
   }

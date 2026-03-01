@@ -172,6 +172,6 @@ namespace game::resource::xml
     bool is_valid() const;
 
   private:
-    void init(tinyxml2::XMLDocument& document, Flags flags, const util::physfs::Path& archive = {});
+    void init(tinyxml2::XMLDocument& document, Flags anm2Flags, const util::physfs::Path& archive = {});
   };
 }

@@ -190,8 +190,6 @@ namespace game::resource::xml
       }
     }
 
-    auto itemSchemaPath = physfs::Path(archive + "/" + "items.xml");
-
     if (auto itemSchemaPath = physfs::Path(archive + "/" + "items.xml"); itemSchemaPath.is_valid())
       itemSchema = Item(itemSchemaPath);
     else
