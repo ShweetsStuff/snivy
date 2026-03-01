@@ -7,6 +7,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(BUILD_SHARED_LIBS OFF)
 
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    if(NOT CMAKE_CONFIGURATION_TYPES)
+        if(NOT CMAKE_BUILD_TYPE)
+            set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+        endif()
+        set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS Debug Release)
+    endif()
+
     if(MSVC)
         set(CMAKE_C_FLAGS_DEBUG "/Od /Zi" CACHE STRING "" FORCE)
         set(CMAKE_CXX_FLAGS_DEBUG "/W4 /permissive- /Od /Zi" CACHE STRING "" FORCE)
@@ -108,12 +115,21 @@ file(GLOB PROJECT_SRC CONFIGURE_DEPENDS
 	        src/util/imgui/*.cpp
 )
 
-add_executable(${PROJECT_NAME}
-        ${PROJECT_SRC}
-        ${IMGUI_SOURCES}
-        ${TINYXML2_SOURCES}
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
-)
+if(WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    add_executable(${PROJECT_NAME} WIN32
+            ${PROJECT_SRC}
+            ${IMGUI_SOURCES}
+            ${TINYXML2_SOURCES}
+            ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
+    )
+else()
+    add_executable(${PROJECT_NAME}
+            ${PROJECT_SRC}
+            ${IMGUI_SOURCES}
+            ${TINYXML2_SOURCES}
+            ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
+    )
+endif()
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/external/SDL/include
