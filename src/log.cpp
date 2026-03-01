@@ -1,10 +1,10 @@
 #include "log.hpp"
 
+#include <cstdio>
 #include <exception>
 #include <iomanip>
 #include <iostream>
 #include <mutex>
-#include <print>
 #include <sstream>
 #include <streambuf>
 #include <thread>
@@ -61,7 +61,9 @@ namespace game
 
   void Logger::write_raw(const std::string& message)
   {
-    std::println("{}", message);
+    std::fwrite(message.c_str(), 1, message.size(), stdout);
+    std::fwrite("\n", 1, 1, stdout);
+    std::fflush(stdout);
     if (file.is_open()) file << message << '\n' << std::flush;
   }
 
