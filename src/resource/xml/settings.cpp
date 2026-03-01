@@ -17,11 +17,12 @@ namespace game::resource::xml
   Settings::Settings(const std::filesystem::path& path)
   {
     XMLDocument document;
+    auto pathString = path.string();
 
-    if (document.LoadFile(path.c_str()) != XML_SUCCESS)
+    if (document.LoadFile(pathString.c_str()) != XML_SUCCESS)
     {
       logger.error(
-          std::format("Could not initialize character save file: {} ({})", path.string(), document.ErrorStr()));
+          std::format("Could not initialize character save file: {} ({})", pathString, document.ErrorStr()));
       return;
     }
 
@@ -40,7 +41,7 @@ namespace game::resource::xml
       root->QueryIntAttribute("WindowH", &windowSize.y);
     }
 
-    logger.info(std::format("Initialized settings: {}", path.string()));
+    logger.info(std::format("Initialized settings: {}", pathString));
 
     isValid = true;
   }
@@ -50,6 +51,7 @@ namespace game::resource::xml
   void Settings::serialize(const std::filesystem::path& path)
   {
     XMLDocument document;
+    auto pathString = path.string();
 
     auto element = document.NewElement("Settings");
 
@@ -65,13 +67,13 @@ namespace game::resource::xml
 
     document.InsertFirstChild(element);
 
-    if (document.SaveFile(path.c_str()) != XML_SUCCESS)
+    if (document.SaveFile(pathString.c_str()) != XML_SUCCESS)
     {
-      logger.info(std::format("Failed to initialize settings: {} ({})", path.string(), document.ErrorStr()));
+      logger.info(std::format("Failed to initialize settings: {} ({})", pathString, document.ErrorStr()));
       return;
     }
 
-    logger.info(std::format("Saved settings: {}", path.string()));
+    logger.info(std::format("Saved settings: {}", pathString));
 
 #ifdef __EMSCRIPTEN__
     web_filesystem::flush_async();

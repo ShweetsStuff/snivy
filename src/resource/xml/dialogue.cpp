@@ -156,7 +156,12 @@ namespace game::resource::xml
     }
   }
 
-  int Dialogue::Pool::get() const { return this->at(math::random_max(this->size())); }
+  int Dialogue::Pool::get() const
+  {
+    if (this->empty()) return -1;
+    auto index = rand() % this->size();
+    return this->at(index);
+  }
   Dialogue::Entry* Dialogue::get(int id) { return &entries.at(id); }
   Dialogue::Entry* Dialogue::get(Dialogue::EntryReference& entry) { return &entries.at(entry.id); }
   Dialogue::Entry* Dialogue::get(const std::string& string) { return &entries.at(entryIDMap.at(string)); }
