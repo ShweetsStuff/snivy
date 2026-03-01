@@ -4,7 +4,7 @@
 
 This Is A Video Game Where You Feed The Snivy.
 
-[Resources](https://shweetz.net/files/games/feed-snivy/resources.7z)
+[Resources](https://shweetz.net/files/games/feed-snivy/resources.zip)
 
 ## Build
 
