@@ -219,7 +219,7 @@ namespace game::entity
           queuedPlay = QueuedPlay{};
           nextQueuedPlay = QueuedPlay{};
           currentQueuedPlay = QueuedPlay{};
-          play_convert(data.animations.stageUp);
+          queue_play({.animation = data.animations.stageUp, .isInterruptible = false});
           stage = nextStage;
           isStageUp = true;
         }

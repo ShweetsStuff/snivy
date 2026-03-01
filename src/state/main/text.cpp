@@ -38,7 +38,7 @@ namespace game::state::main
     time = 0.0f;
     isEnabled = true;
     character.isTalking = true;
-    if (!dialogueEntry->animation.empty()) character.play_convert(dialogueEntry->animation);
+    if (!dialogueEntry->animation.empty()) character.queue_play({dialogueEntry->animation});
     if (dialogueEntry->text.empty()) isEnabled = false;
   }
 

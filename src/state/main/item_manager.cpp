@@ -37,13 +37,6 @@ namespace game::state::main
 
     auto isImguiCaptureMouse = ImGui::GetIO().WantCaptureMouse;
 
-    auto isItemsLocked = character.isStageUp;
-
-    if (isItemsLocked)
-    {
-      heldItemIndex = -1;
-    }
-
     auto isMouseLeftClicked = ImGui::IsMouseClicked(ImGuiMouseButton_Left);
     auto isMouseLeftDown = ImGui::IsMouseDown(ImGuiMouseButton_Left);
     auto isMouseLeftReleased = ImGui::IsMouseReleased(ImGuiMouseButton_Left);
@@ -61,7 +54,7 @@ namespace game::state::main
     if (isJustItemHeldStopped || isJustItemThrown)
     {
       cursor.queue_default_animation();
-      if (!isJustItemThrown && !isItemsLocked) character.queue_idle_animation();
+      if (!isJustItemThrown) character.queue_idle_animation();
       isJustItemHeldStopped = false;
       isJustItemThrown = false;
     }
@@ -122,10 +115,9 @@ namespace game::state::main
 
           auto rect = character.null_frame_rect(eatArea.nullID);
 
-          if (isCanEat && math::is_point_in_rectf(rect, heldItem->position) && !isItemsLocked)
+          if (isCanEat && math::is_point_in_rectf(rect, heldItem->position))
           {
-            character.queue_play(
-                {.animation = eatArea.animation, .speedMultiplier = character.eatSpeed});
+            character.queue_play({.animation = eatArea.animation, .speedMultiplier = character.eatSpeed});
 
             if (character.playedEventID == eatArea.eventID)
             {
@@ -213,7 +205,7 @@ namespace game::state::main
 
       item.update();
 
-      if (math::is_point_in_rectf(item.rect(), cursorPosition) && !isImguiCaptureMouse && !isItemsLocked)
+      if (math::is_point_in_rectf(item.rect(), cursorPosition) && !isImguiCaptureMouse)
       {
         isItemHovered = true;
         cursor.queue_play({cursorSchema.animations.hover.get()});
