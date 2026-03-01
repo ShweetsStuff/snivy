@@ -1,6 +1,7 @@
 #include "log.hpp"
 
 #include <cstdio>
+#include <format>
 #include <exception>
 #include <iomanip>
 #include <iostream>

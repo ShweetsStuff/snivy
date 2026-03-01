@@ -5,6 +5,8 @@
 
 #include "../../log.hpp"
 
+#include <format>
+
 #ifdef __EMSCRIPTEN__
   #include "../../util/web_filesystem.hpp"
 #endif

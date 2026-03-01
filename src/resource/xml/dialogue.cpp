@@ -4,6 +4,8 @@
 #include "../../log.hpp"
 #include "../../util/math.hpp"
 
+#include <format>
+
 using namespace tinyxml2;
 using namespace game::util;
 

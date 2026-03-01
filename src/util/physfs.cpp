@@ -7,6 +7,8 @@
 
 #include "../log.hpp"
 
+#include <format>
+
 namespace game::util::physfs
 {
   std::string path_normalize(std::string_view path)
