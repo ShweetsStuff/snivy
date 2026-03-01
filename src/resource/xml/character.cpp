@@ -40,8 +40,6 @@ namespace game::resource::xml
       query_string_attribute(root, "Name", &name);
 
       root->QueryFloatAttribute("Weight", &weight);
-      root->QueryFloatAttribute("WeightMin", &weightMin);
-      root->QueryFloatAttribute("WeightMax", &weightMax);
 
       root->QueryFloatAttribute("Capacity", &capacity);
       root->QueryFloatAttribute("CapacityMin", &capacityMin);

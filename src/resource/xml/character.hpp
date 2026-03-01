@@ -117,8 +117,6 @@ namespace game::resource::xml
     std::string name{};
     std::filesystem::path path{};
     float weight{50};
-    float weightMin{};
-    float weightMax{999};
     float capacity{2000.0f};
     float capacityMin{2000.0f};
     float capacityMax{99999.0f};

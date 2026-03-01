@@ -139,7 +139,8 @@ namespace game::entity
   float Character::capacity_percent_get() const { return calories / max_capacity(); }
 
   std::string Character::animation_name_convert(const std::string& name) { return std::format("{}{}", name, stage); }
-  void Character::play_convert(const std::string& animation, Mode playMode, float startAtTime, float speedMultiplierValue)
+  void Character::play_convert(const std::string& animation, Mode playMode, float startAtTime,
+                               float speedMultiplierValue)
   {
     play(animation_name_convert(animation), playMode, startAtTime, speedMultiplierValue);
   }
@@ -225,7 +226,7 @@ namespace game::entity
         else
           isJustDigested = true;
 
-        weight = glm::clamp(data.weightMin, weight + increment, data.weightMax);
+        weight += increment;
 
         isDigesting = false;
         digestionTimer = data.digestionTimerMax;

@@ -37,6 +37,9 @@ namespace game::state
 
     character =
         entity::Character(data, vec2(World::BOUNDS.x + World::BOUNDS.z * 0.5f, World::BOUNDS.w - World::BOUNDS.y));
+    character.digestionRate = glm::clamp(data.digestionRateMin, character.digestionRate, data.digestionRateMax);
+    character.eatSpeed = glm::clamp(data.eatSpeedMin, character.eatSpeed, data.eatSpeedMax);
+    character.capacity = glm::clamp(data.capacityMin, character.capacity, data.capacityMax);
 
     auto isAlternateSpritesheet =
         (game == NEW_GAME && math::random_percent_roll(data.alternateSpritesheet.chanceOnNewGame));
@@ -88,16 +91,13 @@ namespace game::state
 
     isPostgame = saveData.isPostgame;
 
-    if (isPostgame)
-      menu.isCheats = true;
-    else
-      menu.isCheats = false;
+    if (isPostgame) menu.isCheats = true;
 
     if (game == NEW_GAME) isWindows = false;
 
     if (auto font = character.data.menuSchema.font.get()) ImGui::GetIO().FontDefault = font;
 
-    character.play_default_animation();
+    character.queue_idle_animation();
     character.tick();
     worldCanvas.size_set(imgui::to_vec2(ImGui::GetMainViewport()->Size));
     world.set(character, worldCanvas, focus_get());
@@ -170,7 +170,8 @@ namespace game::state
       }
     }
 
-    if (character.isJustStageFinal && !isEnd && !isPostgame) isEnd = true;
+    if (character.isJustStageFinal && !isEnd && !isPostgame)
+      isEnd = true;
 
     if (isEnd)
     {
@@ -199,6 +200,7 @@ namespace game::state
           isEndEnd = true;
           isEnd = false;
           isPostgame = true;
+          world.character_focus(character, worldCanvas, focus_get());
         }
       }
     }

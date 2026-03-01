@@ -91,13 +91,11 @@ namespace game::state::main
             ImGui::EndTabItem();
           }
 
-#if defined(DEBUG) && DEBUG
-          if (WIDGET_FX(ImGui::BeginTabItem("Debug")))
+          if (isDebug && WIDGET_FX(ImGui::BeginTabItem("Debug")))
           {
             debug.update(character, cursor, itemManager, canvas);
             ImGui::EndTabItem();
           }
-#endif
         }
         ImGui::EndTabBar();
       }

@@ -61,6 +61,9 @@
       "linux": {
         "command": "${workspaceFolder}/out/build/linux-debug/bin/Debug/snivy"
       },
+      "options": {
+        "cwd": "${workspaceFolder}/out/build/linux-debug/bin/Debug"
+      },
       "windows": {
         "command": "echo \"linux: run debug is Linux-only\" && exit 1"
       },
@@ -72,6 +75,9 @@
       "type": "shell",
       "linux": {
         "command": "${workspaceFolder}/out/build/linux-release/bin/Release/snivy"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}/out/build/linux-release/bin/Release"
       },
       "windows": {
         "command": "echo \"linux: run release is Linux-only\" && exit 1"

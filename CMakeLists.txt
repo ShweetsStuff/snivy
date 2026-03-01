@@ -208,6 +208,7 @@ if(EXISTS "${PROJECT_RESOURCES_DIR}")
                     -DSRC_DIR="${PROJECT_RESOURCES_DIR}"
                     -DDST_DIR="${PROJECT_RESOURCES_BINARY_DIR}"
                     -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/copy_resources.cmake"
+            WORKING_DIRECTORY "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
             DEPENDS ${PROJECT_RESOURCE_FILES}
             COMMENT "Copying resources directory")
     add_dependencies(${PROJECT_NAME} copy_resources)

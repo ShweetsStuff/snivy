@@ -1,6 +1,7 @@
 #include "resources.hpp"
 
 #include "util/preferences.hpp"
+#include "log.hpp"
 
 using namespace game::resource;
 using namespace game::util;
@@ -12,7 +13,19 @@ namespace game
     for (int i = 0; i < shader::COUNT; i++)
       shaders[i] = Shader(shader::INFO[i].vertex, shader::INFO[i].fragment);
 
-    for (auto& entry : std::filesystem::recursive_directory_iterator("resources/characters"))
+    std::string CHARACTERS_DIRECTORY{"resources/characters"}; 
+    std::error_code ec{};
+
+    if (!std::filesystem::is_directory(CHARACTERS_DIRECTORY, ec))
+    {
+      if (ec)
+        logger.warning("Failed to read characters directory: " + CHARACTERS_DIRECTORY + " (" + ec.message() + ")");
+      else
+        logger.warning("Characters directory not found: " + CHARACTERS_DIRECTORY);
+      return;
+    }
+
+    for (auto& entry : std::filesystem::recursive_directory_iterator(CHARACTERS_DIRECTORY))
       if (entry.is_regular_file() && entry.path().extension() == ".zip") characterPreviews.emplace_back(entry.path());
     characters.resize(characterPreviews.size());
   }

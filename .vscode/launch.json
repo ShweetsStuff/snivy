@@ -9,7 +9,7 @@
       "program": "${workspaceFolder}/out/build/linux-debug/bin/Debug/snivy",
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/out/build/linux-debug",
+      "cwd": "${workspaceFolder}/out/build/linux-debug/bin/Debug",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
@@ -27,7 +27,7 @@
       "windows": {
         "type": "cppvsdbg",
         "program": "${workspaceFolder}/out/build/x64-Debug/bin/Debug/snivy.exe",
-        "cwd": "${workspaceFolder}/out/build/x64-Debug"
+        "cwd": "${workspaceFolder}/out/build/x64-Debug/bin/Debug"
       }
     },
     {
@@ -38,7 +38,7 @@
       "preLaunchTask": "cmake: build release",
       "program": "${workspaceFolder}/out/build/linux-release/bin/Release/snivy",
       "args": [],
-      "cwd": "${workspaceFolder}/out/build/linux-release",
+      "cwd": "${workspaceFolder}/out/build/linux-release/bin/Release",
       "environment": [],
       "externalConsole": false,
       "MIMode": "gdb",
@@ -46,7 +46,7 @@
       "windows": {
         "type": "cppvsdbg",
         "program": "${workspaceFolder}/out/build/x64-Release/bin/Release/snivy.exe",
-        "cwd": "${workspaceFolder}/out/build/x64-Release"
+        "cwd": "${workspaceFolder}/out/build/x64-Release/bin/Release"
       }
     },
     {

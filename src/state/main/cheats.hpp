@@ -10,6 +10,7 @@ namespace game::state::main
   class Cheats
   {
   public:
+
     void update(Resources&, entity::Character&, Inventory&, Text&);
   };
 }

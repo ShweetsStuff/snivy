@@ -32,13 +32,6 @@ namespace game::state::main
       ImGui::SameLine();
       if (WIDGET_FX(ImGui::Button("Digest"))) character.digestionProgress = entity::Character::DIGESTION_MAX;
 
-      if (WIDGET_FX(ImGui::SliderFloat("Weight", &character.weight, character.data.weightMin, character.data.weightMax,
-                                       "%0.2f kg")))
-      {
-        character.stage = character.stage_get();
-        character.queue_idle_animation();
-      }
-
       auto stage = character.stage + 1;
       if (WIDGET_FX(ImGui::SliderInt("Stage", &stage, 1, (int)character.data.stages.size() + 1)))
       {
