@@ -90,6 +90,16 @@ namespace game
       default:
         break;
     }
+
+    auto isHideCursor = type == MAIN;
+    if (isHideCursor != isCursorHidden)
+    {
+      if (isHideCursor)
+        SDL_HideCursor();
+      else
+        SDL_ShowCursor();
+      isCursorHidden = isHideCursor;
+    }
   }
 
   void State::render()

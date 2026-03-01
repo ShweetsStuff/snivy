@@ -39,6 +39,7 @@ namespace game
     void render();
 
     bool isRunning{true};
+    bool isCursorHidden{};
 
     Canvas canvas{};
 

@@ -256,7 +256,6 @@ namespace game::state
     cursor.render(textureShader, rectShader, canvas);
     canvas.unbind();
 
-    SDL_HideCursor();
   }
 
   void Main::save(Resources& resources)
