@@ -89,13 +89,13 @@ namespace game
     SDL_PropertiesID windowProperties = SDL_CreateProperties();
 
     SDL_SetStringProperty(windowProperties, SDL_PROP_WINDOW_CREATE_TITLE_STRING, "Snivy");
-    SDL_SetNumberProperty(windowProperties, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, settings.windowSize.x);
-    SDL_SetNumberProperty(windowProperties, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, settings.windowSize.y);
+    SDL_SetNumberProperty(windowProperties, SDL_PROP_WINDOW_CREATE_WIDTH_NUMBER, (long)settings.windowSize.x);
+    SDL_SetNumberProperty(windowProperties, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, (long)settings.windowSize.y);
 
     SDL_SetNumberProperty(windowProperties, SDL_PROP_WINDOW_CREATE_X_NUMBER,
-                          settings.windowPosition.x == 0 ? SDL_WINDOWPOS_CENTERED : settings.windowPosition.x);
+                          settings.windowPosition.x == 0 ? SDL_WINDOWPOS_CENTERED : (long)settings.windowPosition.x);
     SDL_SetNumberProperty(windowProperties, SDL_PROP_WINDOW_CREATE_Y_NUMBER,
-                          settings.windowPosition.y == 0 ? SDL_WINDOWPOS_CENTERED : settings.windowPosition.y);
+                          settings.windowPosition.y == 0 ? SDL_WINDOWPOS_CENTERED : (long)settings.windowPosition.y);
 
     SDL_SetBooleanProperty(windowProperties, SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN, true);
     SDL_SetBooleanProperty(windowProperties, SDL_PROP_WINDOW_CREATE_OPENGL_BOOLEAN, true);

@@ -9,12 +9,6 @@
 #include <streambuf>
 #include <thread>
 
-#if defined(_WIN32)
-  #include <dbghelp.h>
-  #include <execinfo.h>
-  #include <windows.h>
-#endif
-
 #include "util/preferences.hpp"
 #include "util/time.hpp"
 
