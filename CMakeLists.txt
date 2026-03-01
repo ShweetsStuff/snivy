@@ -6,6 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(BUILD_SHARED_LIBS OFF)
 
+if(MSVC)
+    set(CMAKE_SUPPRESS_REGENERATION ON)
+    set(CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD OFF)
+endif()
+
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
     if(NOT CMAKE_CONFIGURATION_TYPES)
         if(NOT CMAKE_BUILD_TYPE)
@@ -122,10 +127,16 @@ add_executable(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
 )
 
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+        RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/bin/Debug"
+        RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/bin/Release"
+)
+
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/external/SDL/include
         ${CMAKE_CURRENT_SOURCE_DIR}/external/SDL_mixer/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/external # tinyxml2 headers are included as <tinyxml2/tinyxml2.h>
+        ${CMAKE_CURRENT_SOURCE_DIR}/external
         ${IMGUI_DIR}
         ${IMGUI_DIR}/backends
         ${GLM_DIR}
@@ -177,6 +188,11 @@ if(EXISTS "${PROJECT_RESOURCES_DIR}")
     set(HAS_PROJECT_RESOURCES TRUE)
 else()
     set(HAS_PROJECT_RESOURCES FALSE)
+endif()
+
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
+if(HAS_PROJECT_RESOURCES)
+    install(DIRECTORY "${PROJECT_RESOURCES_DIR}/" DESTINATION resources)
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
