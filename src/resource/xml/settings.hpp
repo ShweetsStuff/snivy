@@ -22,7 +22,7 @@ namespace game::resource::xml
     util::measurement::System measurementSystem{util::measurement::METRIC};
     int volume{VOLUME_MAX};
 
-    glm::vec3 color{0.09, 0.2196, 0.37};
+    glm::vec3 color{0.120f, 0.515f, 0.115f};
     glm::ivec2 windowSize{1280, 720};
     glm::vec2 windowPosition{};
 
