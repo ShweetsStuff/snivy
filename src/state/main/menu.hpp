@@ -28,7 +28,6 @@ namespace game::state::main
     state::Configuration configuration;
 
     bool isCheats{true};
-    bool isDebug{true};
     bool isOpen{true};
     bool isChat{true};
     util::imgui::WindowSlide slide{};

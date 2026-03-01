@@ -18,6 +18,8 @@ namespace game::state
 {
   World::Focus Main::focus_get()
   {
+    if (!isWindows) return World::CENTER;
+
     return menu.isOpen && tools.isOpen ? World::MENU_TOOLS
            : menu.isOpen               ? World::MENU
            : tools.isOpen              ? World::TOOLS
@@ -84,26 +86,28 @@ namespace game::state
     text.entry = nullptr;
     text.isEnabled = false;
 
-    if (auto font = character.data.menuSchema.font.get()) ImGui::GetIO().FontDefault = font;
-
-    if (game == NEW_GAME && dialogue.start.is_valid())
-    {
-      character.queue_play({.animation = dialogue.start.animation, .isInterruptible = false});
-      character.tick();
-      isWindows = false;
-      isStart = true;
-    }
-
     isPostgame = saveData.isPostgame;
 
     if (isPostgame)
       menu.isCheats = true;
     else
-      menu.isCheats = true; //false;
+      menu.isCheats = false;
 
+    if (game == NEW_GAME) isWindows = false;
+
+    if (auto font = character.data.menuSchema.font.get()) ImGui::GetIO().FontDefault = font;
+
+    character.play_default_animation();
+    character.tick();
     worldCanvas.size_set(imgui::to_vec2(ImGui::GetMainViewport()->Size));
-
     world.set(character, worldCanvas, focus_get());
+
+    if (game == NEW_GAME && dialogue.start.is_valid())
+    {
+      character.queue_play({.animation = dialogue.start.animation, .isInterruptible = false});
+      character.tick();
+      isStart = true;
+    }
   }
 
   void Main::exit(Resources& resources)

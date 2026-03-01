@@ -45,6 +45,7 @@ namespace game
 
   Loader::Loader(int argc, const char** argv)
   {
+
 #ifdef __EMSCRIPTEN__
     util::web_filesystem::init_and_wait();
 #endif
@@ -83,6 +84,7 @@ namespace game
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 
 #ifdef __EMSCRIPTEN__
+    static constexpr glm::vec2 SIZE = {1600, 900};
     window = SDL_CreateWindow("Snivy", SIZE.x, SIZE.y, SDL_WINDOW_OPENGL);
 #else
 

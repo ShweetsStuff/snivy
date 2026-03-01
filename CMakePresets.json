@@ -39,14 +39,14 @@
       }
     },
     {
-      "name": "x64-Debug",
-      "displayName": "x64 Debug",
+      "name": "win32-debug",
+      "displayName": "Win32 Debug",
       "description": "Visual Studio 2022 x64 Debug",
       "generator": "Visual Studio 17 2022",
       "architecture": "x64",
-      "binaryDir": "${sourceDir}/out/build/x64-Debug",
+      "binaryDir": "${sourceDir}/out/build/win32-debug",
       "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/x64-Debug"
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/win32-debug"
       },
       "condition": {
         "type": "equals",
@@ -55,14 +55,14 @@
       }
     },
     {
-      "name": "x64-Release",
-      "displayName": "x64 Release",
+      "name": "win32-release",
+      "displayName": "Win32 Release",
       "description": "Visual Studio 2022 x64 Release",
       "generator": "Visual Studio 17 2022",
       "architecture": "x64",
-      "binaryDir": "${sourceDir}/out/build/x64-Release",
+      "binaryDir": "${sourceDir}/out/build/win32-release",
       "cacheVariables": {
-        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/x64-Release"
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/win32-release"
       },
       "condition": {
         "type": "equals",
@@ -81,13 +81,13 @@
       "configurePreset": "linux-release"
     },
     {
-      "name": "x64-Debug",
-      "configurePreset": "x64-Debug",
+      "name": "win32-debug",
+      "configurePreset": "win32-debug",
       "configuration": "Debug"
     },
     {
-      "name": "x64-Release",
-      "configurePreset": "x64-Release",
+      "name": "win32-release",
+      "configurePreset": "win32-release",
       "configuration": "Release"
     }
   ]

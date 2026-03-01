@@ -41,7 +41,9 @@ namespace game
 
   void State::update()
   {
+#ifndef __EMSCRIPTEN__
     SDL_GetWindowSize(window, &resources.settings.windowSize.x, &resources.settings.windowSize.y);
+#endif
 
     SDL_Event event;
 
@@ -92,8 +94,10 @@ namespace game
 
   void State::render()
   {
-    ivec2 windowSize{};
+    auto windowSize = resources.settings.windowSize;
+#ifndef __EMSCRIPTEN__
     SDL_GetWindowSize(window, &windowSize.x, &windowSize.y);
+#endif
 
     canvas.bind();
     canvas.size_set(windowSize);

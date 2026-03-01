@@ -1,7 +1,7 @@
 ﻿{
   "configurations": [
     {
-      "name": "x64-Debug",
+      "name": "win32-debug",
       "generator": "Ninja",
       "configurationType": "Debug",
       "inheritEnvironments": [
@@ -13,7 +13,7 @@
       "ctestCommandArgs": ""
     },
     {
-      "name": "x64-Release",
+      "name": "win32-release",
       "generator": "Ninja",
       "configurationType": "Release",
       "inheritEnvironments": [

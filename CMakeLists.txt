@@ -127,6 +127,11 @@ add_executable(${PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.cpp
 )
 
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+        "$<$<CONFIG:Debug>:DEBUG=1>"
+        "$<$<NOT:$<CONFIG:Debug>>:DEBUG=0>"
+)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
         RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/bin/Debug"
@@ -186,13 +191,15 @@ if(NOT CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
 endif()
 
 set(PROJECT_RESOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/resources")
-set(PROJECT_RESOURCES_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/resources")
+set(PROJECT_RESOURCES_BINARY_DIR "$<TARGET_FILE_DIR:${PROJECT_NAME}>/resources")
 if(EXISTS "${PROJECT_RESOURCES_DIR}")
     file(GLOB_RECURSE PROJECT_RESOURCE_FILES CONFIGURE_DEPENDS
             "${PROJECT_RESOURCES_DIR}/*")
     add_custom_target(copy_resources ALL
-            COMMAND ${CMAKE_COMMAND} -E remove_directory "${PROJECT_RESOURCES_BINARY_DIR}"
-            COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_RESOURCES_DIR}" "${PROJECT_RESOURCES_BINARY_DIR}"
+            COMMAND ${CMAKE_COMMAND}
+                    -DSRC_DIR="${PROJECT_RESOURCES_DIR}"
+                    -DDST_DIR="${PROJECT_RESOURCES_BINARY_DIR}"
+                    -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/copy_resources.cmake"
             DEPENDS ${PROJECT_RESOURCE_FILES}
             COMMENT "Copying resources directory")
     add_dependencies(${PROJECT_NAME} copy_resources)
@@ -207,6 +214,7 @@ if(HAS_PROJECT_RESOURCES)
 endif()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    set(EMSCRIPTEN_SHELL_FILE "${CMAKE_CURRENT_SOURCE_DIR}/web/index.html")
     target_link_options(${PROJECT_NAME} PRIVATE
             "-sMIN_WEBGL_VERSION=2"
             "-sMAX_WEBGL_VERSION=2"
@@ -217,6 +225,8 @@ if (CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
             "-sFORCE_FILESYSTEM=1"
             "-sASYNCIFY"
             "-lidbfs.js"
+            "--shell-file"
+            "${EMSCRIPTEN_SHELL_FILE}"
     )
     if(HAS_PROJECT_RESOURCES)
         target_link_options(${PROJECT_NAME} PRIVATE

@@ -20,10 +20,10 @@ namespace game::resource::xml
     };
 
     util::measurement::System measurementSystem{util::measurement::METRIC};
-    int volume{VOLUME_MAX};
+    int volume{50};
 
     glm::vec3 color{0.120f, 0.515f, 0.115f};
-    glm::ivec2 windowSize{1280, 720};
+    glm::ivec2 windowSize{1600, 900};
     glm::vec2 windowPosition{};
 
     bool isValid{};

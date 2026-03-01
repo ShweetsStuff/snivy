@@ -9,8 +9,6 @@ namespace game
   class Loader
   {
   public:
-    static constexpr glm::vec2 SIZE = {1280, 720};
-
     SDL_Window* window{};
     SDL_GLContext context{};
     bool isError{};

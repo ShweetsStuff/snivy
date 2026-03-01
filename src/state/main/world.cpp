@@ -13,7 +13,6 @@ namespace game::state::main
   void World::set(entity::Character& character, Canvas& canvas, Focus focus)
   {
     character.stage = character.stage_get();
-    character.queue_idle_animation();
     character_focus(character, canvas, focus);
   }
 
