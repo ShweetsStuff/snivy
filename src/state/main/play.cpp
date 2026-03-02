@@ -335,8 +335,8 @@ namespace game::state::main
         }
         else
         {
-
           score = 0;
+          combo = 0;
           if (isHighScoreAchieved) schema.sounds.highScoreLoss.play();
           if (highScore > 0) isHighScoreAchieved = true;
           isRewardScoreAchieved = false;
