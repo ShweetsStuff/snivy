@@ -10,13 +10,13 @@ You can either use my own animation editor for that game and this one (recommend
 
 Anm2Ed has slightly more extensions to the base format; in particular, something called "Regions", which allows you to set spritesheet regions (areas in the spritesheet that can be repurposed) to quickly reference in animations; previously, one would have to manually create a perfectly spaced spritesheet and then manually set values; this is no longer the case, so using "Regions" is recommended. For the leanest files, in Anm2Ed, go to Settings -> Configure -> File -> Compatibility, and set it to "Anm2Ed Limited".
 
-My process for making characters is that they're typically comprised of many "cells" (small graphics). I make these cells their own file, and then in the editor, I drag them onto "Spritesheets" and then right click -> merge them, with the "Make Spritesheet Regions" option enabled. Then, right click -> Pack on a spritesheet to optimize it all nice for one big spritesheet atlas with everything in one place. It won't produce a very comprehensible spritesheet, but it works just fine (not my problem). Make sure to save the spritesheets you're using once you're done.
+My process for making characters is that they're typically comprised of many "cells" (small graphics). I make these cells their own file, and then in the editor, I drag them onto "Spritesheets" and then right click -> merge them, with the "Make Spritesheet Regions" option enabled. Then, right click -> Pack on a spritesheet to optimize it all nice for one big spritesheet atlas with everything in one place. It won't produce a very comprehensible spritesheet, but it works just fine (not my problem). Make sure to save the spritesheets you're using once you're done. You can sort regions around by clicking, holding and moving them around.
 
 If you'd like a quick primer on how to use either program, check either of [these](https://www.youtube.com/watch?v=qU_GMo2l7NY) [videos](https://www.youtube.com/watch?v=QiXVM6Gwzlw) out. Much of the information is interchangeable between the programs, though both are a little out of date on their current version.
 
-For each "stage" of the character (graphical change), an animation equivalent will be expected. Stages are zero-indexed in this context; so the first stage would be 0. If you have an idle animation and want that for the first, starting stage, you'd need to name the animation "Idle0", for example, and then reference that in character.xml (more on that later). Don't manually input the number for the animation, just put in the first part, "Idle".
+For each "stage" of the character (graphical change), an animation equivalent will be expected. Stages are zero-indexed in this context; so the first stage would be 0. If you have an idle animation and want that for the first, starting stage, you'd need to name the animation "Idle0", for example, and then reference that in character.xml (more on that later). Don't manually input the number for the animation in any file, just put in the first part, "Idle"; the game will handle which stage-animation plays when.
 
-Know that despite Anm2Ed supporting sounds for animations, don't expect these to work in context based on names; use the .xml sound attributes when applicable.
+Know that despite Anm2Ed supporting sounds for animations, don't expect these to work in context based on names; use the .xml sound attributes when applicable. You can add sounds for fluff, though.
 
 # Resources
 
@@ -36,7 +36,7 @@ Feed Snivy uses a collection of [XML](https://en.wikipedia.org/wiki/XML) files t
 - menu.xml
 - play.xml
 
-(dialogue.xml may or may not be optional; but in future updates I'll make sure of it, for dialogueless characters). Regardless, it's a safe bet to have. If
+(dialogue.xml may or may not be optional; but in future updates I'll make sure of it, for dialogueless characters).
 
 If you're making your own character, your best bet would probably be just to copy the Snivy character and edit it based on your needs, just as a helpful start.
 
@@ -66,9 +66,9 @@ This is the main character file where much of the functionality is stored.
 #### Name (string)
 Name of the character; will appear in dialogue, stats, etc.
 #### TextureRootPath (path)
-Working folder/directory of where other textures will be contained within.
+Working folder/directory of where used textures will be contained within.
 #### SoundRootPath (path)
-Working folder/directory of where other sounds will be contained within.
+Working folder/directory of where used sounds will be contained within.
 #### Render (path)
 Texture for the character's "render" (i.e., a typical full-body display), will show in the Select screen.
 #### Portrait (path)
@@ -324,6 +324,200 @@ The dialogue that will play when food is removed from the null area during a cha
 #### PoolID (string)
 The name of the pool that entries will be drawn from.
 
+## items.xml
+Has all items and their parameters, alongside additional behavior.
+
+### ItemSchema
+#### TextureRootPath (path)
+Working folder/directory of where used textures will be contained within.
+#### SoundRootPath (path)
+Working folder/directory of where used sounds will be contained within.
+#### BaseAnm2 (path)
+The base anm2 file that items will use. Items can technically have their own .anm2 and animate accordingly, but I haven't tested this much.
+### Animations
+### Chew
+When items are chewed, play this animation. Items can have chew counts and the animation will adapt accordingly, so be sure to have chew animations for chew counts; 1 chew = Chew1, 2 chew = Chew2, etc. 
+#### Animation (string)
+The name of the animation. Only the base part ("Chew", usually)
+### Sounds
+The various item sounds. Multiple of the same element can be defined to randomly play from a selection.
+### Bounce
+The sound that will play when an item is bounced (hitting a floor/wall/ceiling with velocity).
+#### Sound (path)
+The path to the sound that will play, based on SoundRootPath.
+### Dispose
+The sound that will play when an item is disposed of (when an item has chewed and is right clicked).
+#### Sound (path)
+The path to the sound that will play, based on SoundRootPath.
+### Summon
+The sound that will play when an item is spawned (clicking on it in inventory).
+#### Sound (path)
+The path to the sound that will play, based on SoundRootPath.
+### Return
+The sound that will play when an item is returned to inventory (right clicking on it in world).
+#### Sound (path)
+The path to the sound that will play, based on SoundRootPath.
+### Categories
+The kinds of items present. Will appear in inventory tooltips.
+### Category
+#### Name (string)
+The name of the category.
+#### IsEdible (bool)
+Determines if the category of item can be eaten by the character.
+### Flavors
+Item flavors (for food). Honestly have no meaning but flavor text at the moment but whatever.
+### Flavor
+#### Name (string)
+Name of the flavor.
+### Rarities
+Different rarities of item. Shows in inventory and each can have their own drop chance.
+### Rarity
+#### Name (string)
+Name of the rarity.
+#### Chance (float, percent)
+Base chance of finding an item, per winning a play of the "play" game. See play.xml for how this is modified.
+#### Sound (path)
+Sound that will play when an item is found in the "play" game.
+#### IsHidden (bool)
+If true, items with this rarity will not be previewed in the inventory, unlesss possessed. Assumed false if not present.
+### Items
+#### TextureRootPath (path)
+Working folder/directory of where used item textures will be contained within.
+#### ChewCount (int)
+Base chew count for items; will be chewed this many times before being erased.
+Chew count will determine how many calories/digestion bonus/etc. are given per bite (0 chew = all, 2 chew = divided by 3) 
+#### SpritesheetID (int)
+Item textures will use this spritesheet ID on the base anm2.
+#### QuantityMax (int)
+How many items of a type can be possessed at once.
+### Item
+An individual item entry.
+#### Name (string)
+The name of the item.
+#### Texture (path)
+The texture the item uses; uses TextureRootPath.
+#### Description (string)
+Flavor text for the item.
+#### Category (string)
+The category the item uses; as defined in Categories.
+#### Rarity (string)
+The rarity the item uses; as defined in Rarities.
+#### Anm2 (path; optional)
+The custom anm2 the item uses, if needed.
+#### Flavor (string; optional)
+The flavor the item uses; as defined in Flavors.
+#### Calories (float; optional)
+The amount of calories in an item has (if food).
+#### DigestionBonus (float, percent; optional)
+The additional digestion rate in percent the item will give if eaten.
+#### EatSpeedBonus (float; optional)
+The additional eat speed multiplier the item will give if eaten.
+#### Gravity (float; optional)
+The item's gravity; will use the default gravity if not available.
+#### ChewCount (int; optional)
+An item's custom chew count.
+#### IsPlayReward (bool; optional)
+The item will be given out when the reward is hit in play (see play.xml)
+#### IsToggleSpritesheet (bool; optional)
+When used in the inventory, will toggle the character's spritesheet (in Pokemon terms, toggling normal/shiny palettes).
+
+## menu.xml
+Determines menu and general UI appearance and behavior.
+
+### MenuSchema
+#### SoundRootPath (path)
+Working folder/directory of where used sounds will be contained within.
+#### FontRootPath (path)
+Working folder/directory of where used fonts will be contained within.
+#### Font (path)
+The font the menu will use, based on FontRootPath.
+#### Rounding (float)
+The rounding of corners the UI will use.
+### Sounds
+Menu sounds.
+### Open
+Will play when opening a sliding menu panel.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### Close
+Will play when closing a sliding menu panel.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### Hover
+Will play when hovering over a widget in a menu.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### Select
+Will play when clicking on a widget in a menu.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+
+## play.xml
+Determines behavior and appearance of the "Play" minigame.
+
+### Play
+#### SoundRootPath (path)
+Working folder/directory of where used sounds will be contained within.
+#### RewardScore (int)
+The play score where a rewarded item will be given (see items.xml)
+#### RewardScoreBonus (float, percent)
+Based on the player's score, will add additional bonus to being rewarded items.
+#### RewardGradeBonus (float, percent)
+Based on the player's grades for a round of play, will add additional bonus to being rewarded items.
+#### SpeedMin (float, unit/tick)
+The beginning/base speed of the bar in the minigame.
+#### SpeedMax (float, unit/tick)
+The maximum speed the bar in the minigame can achieve.
+#### SpeedScoreBonus (float)
+The additional speed of the bar based on the player's score.
+#### RangeBase (float)
+A "range" is each area in the minigame that can be hit. This is the base size of one. Per each grade, it's halved. Range size decreases as minigame progresses.
+#### RangeMin (float)
+The minimum size of a range; achievable at high scores.
+#### RangeScoreBonus (float)
+Really a negative. The range size will decrease this much per point of score.
+#### EndTimerMax (int)
+The period of time between plays of the minigame.
+#### EndTimerFailureMax (int)
+When a player fails (no ranges hit), the minigame will pause fo this amount of time, until restarting.
+### Sounds
+### Fall
+The sound that plays when an item falls from being rewarded.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### ScoreLoss
+The sound that plays when the bar goes over the edge and loops, deducting a point.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### HighScore
+The sound that plays when the player achieves a high score. Only heard when a high score has been set during the play session.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### HighScoreLoss
+The sound that plays when the player has achieved a high score, and then fails.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### RewardScore
+The sound that plays when the player has hit the reward score.
+#### Sound (path)
+The sound that will play, based on SoundRootPath.
+### Grades
+A "grade" is a rank the player can get. This determines the count of ranges in the minigame; each range corresponds to a grade.
+### Grade
+#### Name (string)
+The name of the grade; will appear when the player hits its respective range in the minigame.
+#### NamePlural (string)
+The plural name of the grade; will appear in Stats.
+#### Value (int)
+The reward value of the grade, in points.
+#### Weight (float)
+The "weight" of the grade; used to determine accuracy score in Stats.
+#### IsFailure (bool)
+If the player hits this grade's respective range, will count as failure.
+#### DialoguePoolID (string; optional)
+If the player hits this grade, the character will speak dialogue from this pool (see dialogue.xml)
+#### Sound (path)
+This sound will play when the grade is hit.
 
 # Saves
 
@@ -393,3 +587,8 @@ Items.
 ID of item being tracked (see items.xml)
 #### Quantity (int)
 Count of the item.
+
+
+# Conclusion
+
+Hopefully this'll give you the resources you need to start making your own characters. If you need any help with this guide, or with clarification on anything, I'm available. Additionally, the game is [licensed as free software](https://github.com/ShweetsStuff/snivy), meaning if you're stuck the code should give you a clue (though I apologize for the lack of comments. Self-documenting code though, am I right? :^) )
