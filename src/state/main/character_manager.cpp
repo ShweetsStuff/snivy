@@ -41,7 +41,7 @@ namespace game::state::main
     if (isJustStoppedInteracting)
     {
       cursor.queue_play({cursor.defaultAnimation});
-      if (cursor.mode == RUB) character.queue_idle_animation();
+      if (cursor.mode == RUB && character.queuedPlay.empty()) character.queue_idle_animation();
       isJustStoppedInteracting = false;
     }
 

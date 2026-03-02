@@ -240,7 +240,7 @@ namespace game::entity
       auto& index = animationMap.at(queuedPlay.animation);
       if (queuedPlay.isPlayAfterAnimation)
         nextQueuedPlay = queuedPlay;
-      else if (index != animationIndex && currentQueuedPlay.isInterruptible)
+      else if ((state == STOPPED || index != animationIndex) && currentQueuedPlay.isInterruptible)
       {
         play(queuedPlay.animation, queuedPlay.mode, queuedPlay.time, queuedPlay.speedMultiplier);
         currentQueuedPlay = queuedPlay;

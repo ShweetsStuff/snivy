@@ -199,6 +199,7 @@ namespace game::state
           isEndEnd = true;
           isEnd = false;
           isPostgame = true;
+          menu.isCheats = true;
           world.character_focus(character, worldCanvas, focus_get());
         }
       }

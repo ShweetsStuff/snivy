@@ -21,7 +21,7 @@ namespace game::state::main
     bool isEnabled{true};
     float time{};
 
-    void set(resource::xml::Dialogue::Entry*, entity::Character&);
+    void set(resource::xml::Dialogue::Entry*, entity::Character&, bool isInterruptible = true);
     void tick(entity::Character&);
     void update(entity::Character&);
     bool is_interruptible() const;

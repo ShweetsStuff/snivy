@@ -28,7 +28,7 @@ namespace game::state::main
     return it;
   }
 
-  void Text::set(resource::xml::Dialogue::Entry* dialogueEntry, entity::Character& character)
+  void Text::set(resource::xml::Dialogue::Entry* dialogueEntry, entity::Character& character, bool isInterruptible)
   {
     if (!dialogueEntry) return;
     this->entry = dialogueEntry;
@@ -38,7 +38,8 @@ namespace game::state::main
     time = 0.0f;
     isEnabled = true;
     character.isTalking = true;
-    if (!dialogueEntry->animation.empty()) character.queue_play({dialogueEntry->animation});
+    if (!dialogueEntry->animation.empty())
+      character.queue_play({.animation = dialogueEntry->animation, .isInterruptible = isInterruptible});
     if (dialogueEntry->text.empty()) isEnabled = false;
   }
 

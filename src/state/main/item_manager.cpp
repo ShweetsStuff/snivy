@@ -54,7 +54,7 @@ namespace game::state::main
     if (isJustItemHeldStopped || isJustItemThrown)
     {
       cursor.queue_default_animation();
-      if (!isJustItemThrown) character.queue_idle_animation();
+      if (!isJustItemThrown && character.queuedPlay.empty()) character.queue_idle_animation();
       isJustItemHeldStopped = false;
       isJustItemThrown = false;
     }

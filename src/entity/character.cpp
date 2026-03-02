@@ -189,7 +189,7 @@ namespace game::entity
         isStageUp = false;
       }
 
-      if (nextQueuedPlay.empty()) queue_idle_animation();
+      if (nextQueuedPlay.empty() && !isTalking) queue_idle_animation();
     }
 
     Actor::tick();
