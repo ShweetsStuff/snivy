@@ -4,8 +4,12 @@ endif()
 
 set(CHARACTERS_DIR "${SRC_DIR}/characters")
 set(CHARACTERS_ZIP_SCRIPT "${CHARACTERS_DIR}/zip")
+set(IS_HOST_WINDOWS FALSE)
+if(CMAKE_HOST_WIN32)
+    set(IS_HOST_WINDOWS TRUE)
+endif()
 
-if(EXISTS "${CHARACTERS_ZIP_SCRIPT}" AND NOT WIN32)
+if(EXISTS "${CHARACTERS_ZIP_SCRIPT}" AND NOT IS_HOST_WINDOWS)
     execute_process(
             COMMAND "${CHARACTERS_ZIP_SCRIPT}"
             WORKING_DIRECTORY "${CHARACTERS_DIR}"
@@ -39,9 +43,10 @@ if(NOT CHARACTER_ZIPS)
                 RESULT_VARIABLE ZIP_GENERATE_RESULT
         )
         if(NOT ZIP_GENERATE_RESULT EQUAL 0)
-            message(FATAL_ERROR "Failed generating ${CHARACTERS_DIR}/snivy.zip (exit code ${ZIP_GENERATE_RESULT})")
+            message(WARNING "Failed generating ${CHARACTERS_DIR}/snivy.zip (exit code ${ZIP_GENERATE_RESULT}); continuing without character zip archives")
+        else()
+            file(GLOB CHARACTER_ZIPS "${CHARACTERS_DIR}/*.zip")
         endif()
-        file(GLOB CHARACTER_ZIPS "${CHARACTERS_DIR}/*.zip")
     endif()
 endif()
 
