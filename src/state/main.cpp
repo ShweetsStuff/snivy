@@ -92,6 +92,7 @@ namespace game::state
     text.entry = nullptr;
     text.isEnabled = false;
 
+    menu.isCheats = false;
     isPostgame = saveData.isPostgame;
     if (character.stage_get() >= character.stage_max_get()) isPostgame = true;
     if (isPostgame) menu.isCheats = true;
