@@ -3,9 +3,9 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <imgui.h>
 
-#include "../util/math.hpp"
 #include "../util/imgui/style.hpp"
 #include "../util/imgui/widget.hpp"
+#include "../util/math.hpp"
 #include "../util/measurement.hpp"
 
 using namespace game::util;
@@ -40,7 +40,11 @@ namespace game::state
     ImGui::SetItemTooltip("%s", "Change the UI color.");
 
     ImGui::Separator();
-    if (WIDGET_FX(ImGui::Button("Reset to Default", ImVec2(-FLT_MIN, 0)))) settings = resource::xml::Settings();
+    if (WIDGET_FX(ImGui::Button("Reset to Default", ImVec2(-FLT_MIN, 0))))
+    {
+      settings = resource::xml::Settings();
+      style::color_set(settings.color);
+    }
 
     if (mode == MAIN)
     {
