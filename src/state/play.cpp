@@ -352,7 +352,10 @@ namespace game::state
   {
     auto& textureShader = resources.shaders[shader::TEXTURE];
     auto& rectShader = resources.shaders[shader::RECT];
-    auto size = imgui::to_ivec2(ImGui::GetMainViewport()->Size);
+    
+    auto framebufferScale = imgui::to_vec2(ImGui::GetIO().DisplayFramebufferScale);
+    auto viewportSize = imgui::to_vec2(ImGui::GetMainViewport()->Size);
+    auto size = glm::ivec2(viewportSize * framebufferScale);
 
     auto& bgTexture = character.data.areaSchema.areas.at(areaManager.get(character)).texture;
 
